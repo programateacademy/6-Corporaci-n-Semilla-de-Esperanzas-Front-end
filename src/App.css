@@ -18,13 +18,15 @@ header{
 
 /* -----------------------Aside--------------- */
 aside{
-  width: 200px;
-  height: 850px;
+  min-width: 200px;
+  height: 700px;
   float: left;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  background-color:rgb(255, 255, 255);
+  z-index: 2;
 }
 
 .aside-sup{
@@ -51,5 +53,137 @@ aside{
   width: 60px;
   height: 60px;
   color:#008000;
+}
+
+/* -----------------Admin Login--------------- */
+
+.admin-login{
+  width: 970px;
+  height: 620px;
+  margin-top: 35px;
+  margin-left: 220px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+}
+
+.admin-login h2{
+  text-align: center;
+  height: 40px;
+  color:#008000;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.login-admin-cont{
+  width: 900px;
+  height: 490px;
+  margin-top: 80px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+}
+
+.form-login{
+  width: 390px;
+  height: 485px;
+  background-color: white;
+  border: 2px solid #008000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-login div:first-child{
+  margin-top: 100px;
+}
+
+.form-login button{
+  width: 110px;
+  height: 35px;
+  border-radius: 50px;
+  background-color: #008000;
+  color: white;
+  border-style: none;
+}
+
+.login-btn{
+  margin-top: 30px;
+  width: 380px;
+  display: flex;
+  justify-content: right;
+  margin-right: 10px;
+}
+
+.input{
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.pass-input{
+  width: 320px;
+  border: none;
+  border-bottom: 2px solid #008000;
+}
+
+.input label{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.img-login-admin{
+  background-image:url(./images/manos1.png);
+  width: 510px;
+  height: 485px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+/* -----------------------Form--------------- */
+
+.cont-form{
+  margin: 0 auto;
+  background-image:url(./images/unidos.png);
+  width: 1080px;
+  height: 750px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.donation-form{
+  margin: auto;
+  background-color: #d9d9d9;
+  width: 700px;
+  height: 750px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.donation-form h1{
+  width: 400px;
+  font-size: 30px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.donation-form h2{
+  font-size: 25px;
+  color: #008000;
+  margin-top: 30px;
+  font-weight: 400;
+}
+
+.donation-form label{
+  margin-left: 10px;
+}
+
+.person-type{
+  margin: 10px;
+  display: flex;
+  width: 400px;
+  justify-content: space-around;
 }
 
