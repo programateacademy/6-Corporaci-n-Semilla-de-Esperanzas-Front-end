@@ -10,8 +10,10 @@ function App() {
   return (
     <div className="App">
       <Header/>
-      <Aside/>
-      <Session/>
+      <div className='content'>
+        <div className='lateral'><Aside/></div>
+        <div className='central-body'><Session/></div>
+      </div>
     </div>
   );
 }
