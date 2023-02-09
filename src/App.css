@@ -11,6 +11,7 @@
     background-size: cover;
     background-position: center center;
     height: 100vh;
+    width: 100%;
   }
 }
 /* -----------------------Header--------------- */
@@ -124,6 +125,13 @@ aside{
   } 
   
 }
+
+@media (max-width: 660px) { 
+  .admin-login{
+    width: 300px;
+    margin-top: 115px;
+  } 
+}
 .admin-login h2{
   text-align: center;
   height: 40px;
@@ -142,7 +150,15 @@ aside{
 
 @media (max-width: 900px) { 
   .login-admin-cont{
-    width: 500px;
+    width: 480px;
+    height: 400px;
+
+  }
+}
+
+@media (max-width: 660px) { 
+  .login-admin-cont{
+    width: 300px;
     height: 400px;
 
   }
@@ -162,6 +178,15 @@ aside{
   .form-login{
     width: 400px;
     height: 480px;
+    background-color: rgb(217, 217, 217, 0.8);
+  }
+}
+
+@media (max-width: 660px) { 
+  .form-login{
+    margin-top: 25px;
+    width: 280px;
+    height: 380px;
     background-color: rgb(217, 217, 217, 0.8);
   }
 }
@@ -186,6 +211,17 @@ aside{
   margin-right: 30px;
 }
 
+@media (max-width: 660px) { 
+  .login-btn{
+    margin-top: 30px;
+    width: 380px;
+    display: flex;
+    justify-content: center;
+    margin-right: 30px;
+  }
+  
+}
+
 .input{
   display: flex;
   flex-direction: column;
@@ -199,6 +235,14 @@ aside{
   background-color: transparent;
 }
 
+@media (max-width: 660px) { 
+  .pass-input{
+    width: 200px;
+    border: none;
+    border-bottom: 2px solid #008000;
+    background-color: transparent;
+  }
+}
 .input label{
   margin-top: 10px;
   margin-bottom: 10px;
@@ -275,11 +319,11 @@ aside{
 @media (max-width: 900px) { 
   footer{
   width: 100%;
-  height: 50px;
+  height: 70px;
   background-color: #ffffff;
   margin-top: 45px;
   position: absolute;
-  bottom: 0;
+  bottom: 0px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -290,5 +334,29 @@ aside{
 @media (min-width:900px ) { 
   footer{
     display:none;
+  }
+}
+
+@media (max-width: 660px) { 
+  .home-icon{
+    width: 40px;
+    height: 40px
+  }
+  
+  .img-plant-icon{
+    margin-top: 30px;
+    width: 35px;
+  }
+  
+  @media (max-width: 900px) { 
+    .img-plant-icon{
+      margin-top: 0px;
+    }
+  }
+  
+  .admin-icon{
+    width: 40px;
+    height: 40px;
+
   }
 }
