@@ -9,11 +9,11 @@ export const Form = () => {
             <h2>Tipo de persona</h2>
             <div className='person-type'>
                 <div>
-                    <input className='radio-input' type="radio" id="html" name="np" value="#"></input> 
+                    <input className='radio-input' type="radio" id="html" name="person" value="#"></input> 
                     <label>Natural</label>
                 </div>
                 <div>
-                    <input className='radio-input' type="radio" id="html" name="jp" value="#"></input> 
+                    <input className='radio-input' type="radio" id="html" name="person" value="#"></input> 
                     <label>Jurídica</label>
                 </div>
             </div>
@@ -30,18 +30,17 @@ export const Form = () => {
                         <option>Cocina</option>
                         <option>Comedor</option>
                         <option>Huerta</option>
-                        <option>Mujer Siempre Adelante</option>
                         <option>Otro</option>
                     </select>
                 </div>
                 <div>Requiere Certificado</div>
                 <div className='certif'>
                      <div>
-                        <input className='radio-input' type="radio" id="html" name="np" value="#"></input> 
+                        <input className='radio-input' type="radio" id="html" name="cert" value="#"></input> 
                         <label>Si</label>
                     </div>
                     <div>
-                        <input  className='radio-input' type="radio" id="html" name="jp" value="#"></input> 
+                        <input  className='radio-input' type="radio" id="html" name="cert" value="#"></input> 
                         <label>No</label>
                     </div>
                 </div>
