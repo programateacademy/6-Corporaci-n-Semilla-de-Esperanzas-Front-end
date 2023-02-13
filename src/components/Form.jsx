@@ -12,14 +12,14 @@ export const Form = () => {
     const [phone, setPhone] = useState('');
     const [destination, setDestination] = useState('');
     const [certification, setCertification] = useState('');
-    const [aditional, setAditional] = useState('');
-    const [state, setState] = useState('');
+    const [aditional, setAditional] = useState('');    
 
     const addDonation = async (e)=>{
         e.preventDefault();
         try {
-            const res = await axios.post(url+'/forms/new', {type: type, nit_cedula: nit_cedula, name: names, email: email, phone: phone, destination_don: destination, certification: certification, aditional: aditional, state: state});
+            const res = await axios.post(url+'/forms/new', {type: type, nit_cedula: nit_cedula, name: names, email: email, phone: phone, destination_don: destination, certification: certification, aditional: aditional});
             console.log(res);
+            console.log("formulario agregado")
         } catch (error) {
             console.log(error);
         }
@@ -33,7 +33,7 @@ export const Form = () => {
             <h2>Tipo de persona</h2>
             <div className='person-type'>
                 <div>
-                    <input className='radio-input' type="radio" id="html" name="person" value="type"></input> 
+                    <input className='radio-input' type="radio" id="html" name="person" onChange={e=>{setType(e.target.value)}} value={type}></input> 
                     <label>Natural</label>
                 </div>
                 <div>
@@ -42,13 +42,13 @@ export const Form = () => {
                 </div>
             </div>
             <div className='form-fields'>
-                <div><input type='text' name='nit_cedula' placeholder='Nit' value={nit_cedula}></input></div>
-                <div><input type='text' name='names' placeholder='Razón Social' value={names}></input></div>
-                <div><input type='text' name='email' placeholder='Email' value={email}></input></div>
-                <div><input type='text' name='phone' placeholder='Celular' value={phone}></input></div>
+                <div><input type='text' name='nit_cedula' placeholder='Nit' onChange={e=>{setNitCed(e.target.value)}} value={nit_cedula}></input></div>
+                <div><input type='text' name='names' placeholder='Razón Social' onChange={e=>{setNames(e.target.value)}} value={names}></input></div>
+                <div><input type='text' name='email' placeholder='Email' onChange={e=>{setEmail(e.target.value)}} value={email}></input></div>
+                <div><input type='text' name='phone' placeholder='Celular' onChange={e=>{setPhone(e.target.value)}} value={phone}></input></div>
                 <div>Tipo de donación</div>
                 <div>
-                    <select value={destination}>
+                    <select onChange={e=>{setDestination(e.target.value)}} value={destination}>
                         <option>Seleccione</option>
                         <option>Infrasestructura</option>
                         <option>Cocina</option>
@@ -60,7 +60,7 @@ export const Form = () => {
                 <div>Requiere Certificado</div>
                 <div className='certif'>
                      <div>
-                        <input className='radio-input' type="radio" id="html" name="cert" value={certification}></input> 
+                        <input className='radio-input' type="radio" id="html" name="cert" onChange={e=>{setCertification(e.target.value)}} value={certification}></input> 
                         <label>Si</label>
                     </div>
                     <div>
@@ -72,7 +72,7 @@ export const Form = () => {
                
             </div>
             <div className='aditional-comments'>
-                    <input placeholder='Comentario Adicional' type='text' value={aditional}></input>
+                    <input placeholder='Comentario Adicional' type='text' onChange={e=>{setAditional(e.target.value)}} value={aditional}></input>
             </div>
             <div className='send-form'>
                 <div className='terms-form'>
