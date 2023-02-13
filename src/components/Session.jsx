@@ -15,7 +15,7 @@ export const Session = () => {
 
                 <div className='input'>
                     <label>Contraseña</label>
-                    <input name='password' className='pass-input'  onChange=''  required/>
+                    <input type="password" name='password' className='pass-input' minlength="8"  onChange=''  required/>
                 </div>
 
                 <div>
