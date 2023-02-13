@@ -1,20 +1,22 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { Aside } from './components/Aside';
+import { Footer } from './components/Footer';
+import { Form } from './components/Form';
+import { Header } from './components/Header';
+import { Session } from './components/Session';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header/>
+      <div className='content'>
+        {/* <div className='lateral'><Aside/></div>
+        <div className='central-body'><Session/></div> */}
+        <Form></Form>
+      </div>
+      <Footer/>
     </div>
   );
 }
