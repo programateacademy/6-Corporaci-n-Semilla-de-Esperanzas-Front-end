@@ -1,6 +1,8 @@
 import React from 'react'
 
 export const Form = () => {
+    
+
   return (
     <div className='cont-form'>
         <form className='donation-form'>
