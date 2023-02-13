@@ -1,44 +1,25 @@
-import React, {useState} from 'react'
-import { FormNatural } from './FormNatural';
+import React from 'react'
 
-
-
-export const Form = () => {
-    const [persona, setPersona] = useState(false);
-    
-    const handleNatural = () => {
-        setPersona(true);
-    }
-    const handleJuridica = () => {
-        setPersona(false);
-    }
-
+export const FormNatural = () => {
   return (
-   <div>
     <div className='cont-form'>
-         
         <form className='donation-form'>
 
             <h1>¡Haz tu donación a Semillas de Esperanza hoy!</h1>
             <h2>Tipo de persona</h2>
             <div className='person-type'>
                 <div>
-                    <input className='radio-input' type="radio" id="html" name="person" value="#"  onClick={handleNatural}></input> 
+                    <input className='radio-input' type="radio" id="html" name="person" value="#" defaultChecked ></input> 
                     <label>Natural</label>
                 </div>
                 <div>
-                    <input className='radio-input' type="radio" id="html" name="person" value="#" onClick={handleJuridica} defaultChecked></input> 
+                    <input className='radio-input' type="radio" id="html" name="person" value="#" ></input> 
                     <label>Jurídica</label>
                 </div>
             </div>
             <div className='form-fields'>
-            {persona ? 
-            (<><div><input type='text' placeholder='Nombre'></input></div>
-            <div><input type='text' placeholder='Apellido'></input></div></>): 
-            (<><div><input type='text' placeholder='Nit'></input></div>
-            <div><input type='text' placeholder='Razón Social'></input></div></>)
-            }
-                
+                <div><input type='text' placeholder='Nombre'></input></div>
+                <div><input type='text' placeholder='Apellido'></input></div>
                 <div><input type='email' placeholder='Email'></input></div>
                 <div><input type='email' placeholder='Celular'></input></div>
                 <div>Tipo de donación</div>
@@ -80,5 +61,5 @@ export const Form = () => {
             </div>
         </form>
     </div>
-    </div>)
+  )
 }
