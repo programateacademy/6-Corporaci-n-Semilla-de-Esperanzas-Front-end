@@ -12,7 +12,17 @@ export const Form = () => {
     const [phone, setPhone] = useState('');
     const [destination, setDestination] = useState('');
     const [certification, setCertification] = useState('');
-    const [aditional, setAditional] = useState('');    
+    const [aditional, setAditional] = useState('');
+    const [persona, setPersona] = useState(false);
+    
+    const handleNatural = () => {
+        setPersona(true);
+        return "Natural";
+    }
+    const handleJuridica = () => {
+        setPersona(false);
+        return "Jurídica";
+    }    
 
     const addDonation = async (e)=>{
         e.preventDefault();
