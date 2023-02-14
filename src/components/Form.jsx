@@ -4,15 +4,15 @@ import React, {useState} from 'react'
 
 
 export const Form = () => {
-    const [persona, setPersona] = useState(false);
+    const [natural, setNatural] = useState(false);
     
     const handleNatural = () => {
-        setPersona(true);
+        setNatural(true);
     }
     const handleJuridica = () => {
-        setPersona(false);
+        setNatural(false);
     }
-
+console.log(natural)
   return (
    <div>
     <div className='cont-form'>
@@ -32,7 +32,7 @@ export const Form = () => {
                 </div>
             </div>
             <div className='form-fields'>
-            {persona ? 
+            {natural ? 
             (<><div><input type='text' placeholder='Nombre'></input></div>
             <div><input type='text' placeholder='Apellido'></input></div></>): 
             (<><div><input type='text' placeholder='Nit'></input></div>
