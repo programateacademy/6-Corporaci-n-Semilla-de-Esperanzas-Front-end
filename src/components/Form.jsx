@@ -17,11 +17,9 @@ export const Form = () => {
     
     const handleNatural = () => {
         setPersona(true);
-        return "Natural";
     }
     const handleJuridica = () => {
-        setPersona(false);
-        return "Jurídica";
+        setPersona(false);        
     }    
 
     const addDonation = async (e)=>{
@@ -43,17 +41,23 @@ export const Form = () => {
             <h2>Tipo de persona</h2>
             <div className='person-type'>
                 <div>
-                    <input className='radio-input' type="radio" id="html" name="person" onChange={e=>{setType(e.target.value)}} value={type} onClick={handleNatural}></input> 
+                    <input className='radio-input' type="radio" id="html" name="person" onChange={e=>{setType(e.target.value)}} value={"Natural"} checked={type === "Natural"} onClick={handleNatural}></input> 
                     <label>Natural</label>
                 </div>
                 <div>
-                    <input className='radio-input' type="radio" id="html" name="person" onChange={e=>{setType(e.target.value)}} value={type} onClick={handleJuridica} ></input> 
+                    <input className='radio-input' type="radio" id="html" name="person" onChange={e=>{setType(e.target.value)}} value={"Jurídica"} checked={type === "Jurídica"} onClick={handleJuridica} ></input> 
                     <label>Jurídica</label>
                 </div>
             </div>
             <div className='form-fields'>
-                <div><input type='text' name='nit_cedula' placeholder='Nit' onChange={e=>{setNitCed(e.target.value)}} value={nit_cedula}></input></div>
-                <div><input type='text' name='names' placeholder='Razón Social' onChange={e=>{setNames(e.target.value)}} value={names}></input></div>
+               
+                {persona?
+                (<><div><input type='text' name='names' placeholder='Nombre' onChange={e=>{setNames(e.target.value)}} value={names}></input></div>
+                <div><input type='text' name='nit_cedula' placeholder='Cédula' onChange={e=>{setNitCed(e.target.value)}} value={nit_cedula}></input></div></>):
+                (<><div><input type='text' name='nit_cedula' placeholder='Nit' onChange={e=>{setNitCed(e.target.value)}} value={nit_cedula}></input></div>
+                <div><input type='text' name='names' placeholder='Razón Social' onChange={e=>{setNames(e.target.value)}} value={names}></input></div></>)
+                }
+
                 <div><input type='text' name='email' placeholder='Email' onChange={e=>{setEmail(e.target.value)}} value={email}></input></div>
                 <div><input type='text' name='phone' placeholder='Celular' onChange={e=>{setPhone(e.target.value)}} value={phone}></input></div>
                 <div>Tipo de donación</div>
