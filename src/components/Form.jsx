@@ -43,11 +43,11 @@ export const Form = () => {
             <h2>Tipo de persona</h2>
             <div className='person-type'>
                 <div>
-                    <input className='radio-input' type="radio" id="html" name="person" onChange={e=>{setType(e.target.value)}} value={type}></input> 
+                    <input className='radio-input' type="radio" id="html" name="person" onChange={e=>{setType(e.target.value)}} value={type} onClick={handleNatural}></input> 
                     <label>Natural</label>
                 </div>
                 <div>
-                    <input className='radio-input' type="radio" id="html" name="person" value="#"></input> 
+                    <input className='radio-input' type="radio" id="html" name="person" onChange={e=>{setType(e.target.value)}} value={type} onClick={handleJuridica} ></input> 
                     <label>Jurídica</label>
                 </div>
             </div>
