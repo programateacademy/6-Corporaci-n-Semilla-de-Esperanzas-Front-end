@@ -17,9 +17,9 @@ export const PopUp = () => {
 
           <p>Estas seguro que deseas cambiar el estado de la actualización?</p>
 
-          <div className="buttons-popup">
-            <button type="submit">Cancelar</button>
-            <button type="submit">Aceptar</button>
+          <div className="container-buttons-popup">
+            <button className="item-button-popup" type="submit">Cancelar</button>
+            <button className="item-button-popup" type="submit">Aceptar</button>
           </div>
 
         </div>

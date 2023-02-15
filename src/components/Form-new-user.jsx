@@ -27,7 +27,7 @@ const NewUser = () => {
                         <label for="repeatpassword">Vuelve a escribir la contraseña</label>
                         <input type="text" id="repeatpassword" placeholder="*********" />
                 
-                        <button type="submit">Crear Usuario</button>
+                        <button className="button-newuser" type="submit">Crear Usuario</button>
 
                     </form>
 
