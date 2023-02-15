@@ -14,8 +14,9 @@ function App() {
       <div className='content'>
         {/* <div className='lateral'><Aside/></div>
         <div className='central-body'><Session/></div> */}
-        <Form/>
+        
       </div>
+      <Form/>
       <Footer/>
     </div>
   );

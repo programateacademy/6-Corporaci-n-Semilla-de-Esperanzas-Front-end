@@ -6,10 +6,10 @@
 
 @media (max-width: 900px) { 
   .App{
-    background-image:url(./images/manos1.png);
+    /* background-image:url(./images/manos1.png);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center center;
+    background-position: center center; */
     min-height: 90%;
     width: 100vw;
     overflow: hidden;
@@ -37,7 +37,7 @@
 
 @media (max-width: 445px) { 
   .header{
-    height: 85px;
+    height: 80px;
   }
 }
 
@@ -373,8 +373,33 @@ aside{
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+  display: flex;
+  justify-content: center;
 }
 
+@media (max-width: 1024px) {  
+.cont-form{
+  width: 800px;
+  height: 750px;
+}
+}
+@media (max-width: 800px) {  
+.cont-form{
+  width: 650px;
+  margin: 80px auto 0px;
+}
+}
+@media (max-width:650px) {  
+.cont-form{
+  width: 500px;
+   margin: 115px auto 0px;
+}
+}
+@media (max-width: 480px) { 
+  .cont-form{
+    width: 320px;
+  }
+}
 .donation-form{
   margin: auto;
   background-color: #d9d9d9;
@@ -383,7 +408,22 @@ aside{
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+}
+
+@media (max-width: 1024px) { 
+.donation-form{
+  width: 600px;
+}
+}
+@media (max-width: 800px) { 
+.donation-form{
+  width: 550px;
+}
+}
+@media (max-width: 650px) { 
+.donation-form{
+  width: 400px;
+}
 }
 
 .donation-form h1{
@@ -393,11 +433,24 @@ aside{
   margin-top: 20px;
 }
 
+@media (max-width: 650px) { 
+  .donation-form h1{
+  width: 300px;
+  font-size: 20px;
+}
+}
+
 .donation-form h2{
   font-size: 25px;
   color: #008000;
   margin-top: 30px;
   font-weight: 400;
+}
+
+@media (max-width: 650px) { 
+  .donation-form h2{
+  font-size: 20px;
+}
 }
 
 .donation-form label{
@@ -411,10 +464,22 @@ aside{
   justify-content: space-around;
 }
 
+@media (max-width: 650px) { 
+  .person-type{
+  width: 300px;
+}
+
+}
+
 .person-type label{
   font-size: 20px;
 }
 
+@media (max-width: 650px) { 
+  .person-type label{
+    font-size: 15px;
+  }
+}
 .form-fields{
   display: flex;
   flex-wrap: wrap;
@@ -424,6 +489,25 @@ aside{
   font-size: 20px;
 }
 
+@media (max-width: 650px) { 
+  .form-fields{
+    display: flex;
+    flex-wrap: wrap;
+    width: 500px;
+    gap: 15px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 370px) { 
+  .form-fields{
+    display: flex;
+    flex-wrap: wrap;
+    width:370px;
+    gap: 5px;
+    font-size: 15px;
+  }
+}
 .form-fields div{
   width:35%;
   text-align: center;
@@ -440,12 +524,33 @@ aside{
   height: 30px;
 }
 
+@media (max-width: 650px) { 
+  .form-fields input{
+    width: 170px;
+    height: 25px;
+  }
+}
+
+@media (max-width: 370px) { 
+  .form-fields input{
+    width: 130px;
+    height: 25px;
+  }
+}
 .form-fields input::placeholder{
   color: #0f0f0f;
   font-size: 20px;
   text-align:center;
 }
 
+@media (max-width: 650px) { 
+.form-fields input::placeholder{
+  color: #0f0f0f;
+  font-size: 16px;
+  text-align:center;
+}
+
+}
 select{
   background-color: transparent;
   border: 1px solid black;
@@ -455,16 +560,59 @@ select{
   text-align:center;
 }
 
+@media (max-width: 650px) { 
+  select{
+    width: 160px;
+    height: 25px;
+    font-size: 16px;
+  }
+  
+}
+
+@media (max-width: 370px) { 
+  select{
+    width: 130px;
+    height: 25px;
+    font-size: 16px;
+  }
+}
 .radio-input{
   font-size: 20px;
   width:20px;
   height: 20px;
 }
 
+
 .certif input{
   font-size: 20px;
   width:20px;
   height: 20px;
+}
+
+@media (max-width: 650px) { 
+  .certif input{
+    font-size: 15px;
+  }
+  
+}
+
+@media (max-width: 650px) { 
+  .certif label{
+    font-size: 15px;
+  }
+
+  .req{
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 370px) { 
+  .certif label{
+   margin-left: 5px;
+  }
+  .cerf div{
+    width: 20px;
+}
 }
 
 .aditional-comments input{
@@ -477,11 +625,31 @@ select{
  font-size: 20px;
 }
 
+@media (max-width: 650px) { 
+  .aditional-comments input{
+    width: 300px;
+    height: 80px;
+    text-align: center;
+    margin-top: 45px;
+    font-size: 20px;
+   }
+}
+
 .send-form{
   margin-top: 30px;
   display: flex;
   width: 500px;
   justify-content: space-between;
+}
+
+@media (max-width: 650px) { 
+  .send-form{
+    margin-top: 30px;
+    display: flex;
+    width: 350px;
+    justify-content: space-between;
+    font-size: 13px;
+  }
 }
 
 .send-form button{
@@ -493,8 +661,24 @@ select{
   border-style: none;
 }
 
+@media (max-width: 650px) { 
+  .send-form button{
+    width: 80px;
+    height: 35px;
+    border-radius: 50px;
+    background-color: #008000;
+    color: white;
+    border-style: none;
+  }  
+
+  .terms{
+    text-align: justify;
+  }
+}
+
 .terms-form{
   width: 370px;
   display: flex;
   align-items: center;
 }
+

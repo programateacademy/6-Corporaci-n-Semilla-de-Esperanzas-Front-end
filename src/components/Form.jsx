@@ -41,7 +41,7 @@ console.log(natural)
                 
                 <div><input type='email' placeholder='Email'></input></div>
                 <div><input type='email' placeholder='Celular'></input></div>
-                <div>Tipo de donación</div>
+                <div className='req'>Tipo de donación</div>
                 <div>
                     <select>
                         <option value=''>Seleccione</option>
@@ -52,7 +52,7 @@ console.log(natural)
                         <option value='Otr'>Otro</option>
                     </select>
                 </div>
-                <div>Requiere Certificado</div>
+                <div className='req'>Requiere Certificado</div>
                 <div className='certif'>
                      <div>
                         <input className='radio-input' type="radio" id="cert" name="cert" value="#"></input> 
@@ -72,7 +72,7 @@ console.log(natural)
             <div className='send-form'>
                 <div className='terms-form'>
                     <input className='radio-input' type="checkbox" id="html" name="jp" value="#"></input> 
-                    <label>He leído y acepto el aviso de privaciodad y política de protección de datos personales.</label>
+                    <label className='terms'>He leído y acepto el aviso de privaciodad y política de protección de datos personales.</label>
                 </div>
                 <div>
                     <button>Enviar</button>
