@@ -2,7 +2,7 @@ import React from "react";
 import "../newuser.css";
 
 
-const NewUser = () => {
+export const NewUser = () => {
 
     return (
     <div className="container-newuser">
