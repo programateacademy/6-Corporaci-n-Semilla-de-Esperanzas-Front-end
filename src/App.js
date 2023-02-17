@@ -12,14 +12,17 @@ import {PopUp} from './components/PopUp';
 function App() {
   return (
     <div className="App">
-
-      {/* <PopUp/>  */}
-      {/* <NewUser/> */}
-      <Header/> 
-        <div className='content'>
-          <div className='central-body'><Session/></div>
-          {/* <Form></Form> */}
-        </div> 
+      {/*<Header/>*/}
+      <div className='content'>
+        {/* <div className='lateral'><Aside/></div>
+        <div className='central-body'><Session/></div> */}
+        
+        <div className='lateral'><Aside/></div>
+        <div className='central-body'><Session/></div>
+        {/*<Form></Form>*/}
+      </div>
+      <Form/>
+      <Footer/>
     </div>
   );
 }
