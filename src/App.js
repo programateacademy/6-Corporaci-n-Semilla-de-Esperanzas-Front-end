@@ -1,5 +1,6 @@
 
 import './App.css';
+import { Route, Routes } from 'react-router';
 import { Aside } from './components/Aside';
 import { Footer } from './components/Footer';
 import { Form } from './components/Form';
@@ -14,10 +15,12 @@ function App() {
     <div className="App">
 
       {/* <PopUp/>  */}
-      <NewUser/>
-      {/* <Header/> 
-        <div className='content'><div className='central-body'><Session/></div></div>  
-        <Form></Form> */}
+      <Routes>
+        <Route path='/' element={<Form/>}/>
+        <Route path='/Session' element={<><Header/> <div className='content'><div className='central-body'><Session/></div></div></>   }/>
+        <Route path='/NewUser' element={<NewUser/>}/>
+      </Routes>
+
     </div>
   );
 }

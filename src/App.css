@@ -697,4 +697,29 @@ select{
 
 }
 
+.admin-portal-link{
+  margin-top: 20px;
+  width: 320px;
+  height: 40px;
+}
 
+.admin-portal{
+  display: flex;
+  align-items: center;
+  width: 320px;
+  height: 40px;
+}
+
+.admin-portal button{
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.admin-portal span{
+  color:black;
+}
+
+.admin-portal .admin-icon{
+  color: #008000;
+}

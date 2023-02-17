@@ -1,5 +1,7 @@
 import axios from 'axios';
 import React, {useState} from 'react';
+import {BsFillPersonFill} from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 let url = "http://localhost:3030";
 
@@ -98,6 +100,11 @@ export const Form = () => {
                     <button type='submit'>Enviar</button>
                 </div>
             </div>
+            <Link to= "/Session" className='admin-portal-link'><div className='admin-portal'>
+                    <button><BsFillPersonFill  className='admin-icon'></BsFillPersonFill></button>
+                    <span>Si eres Administrador ingresa aquí</span>
+                </div>
+            </Link>
         </form>
     </div>
     </div>)
