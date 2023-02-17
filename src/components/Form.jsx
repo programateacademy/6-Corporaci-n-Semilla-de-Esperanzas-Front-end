@@ -22,6 +22,7 @@ export const Form = () => {
         setPersona(false);        
     }    
 
+    //Agregar usuario
     const addDonation = async (e)=>{
         e.preventDefault();
         try {
@@ -31,7 +32,7 @@ export const Form = () => {
         } catch (error) {
             console.log(error);
         }
-    }
+    };
 
   return (
     <div className='cont-form'>
@@ -54,8 +55,8 @@ export const Form = () => {
                 {persona?
                 (<><div><input type='text' name='names' placeholder='Nombre' onChange={e=>{setNames(e.target.value)}} value={names}></input></div>
                 <div><input type='text' name='nit_cedula' placeholder='Cédula' onChange={e=>{setNitCed(e.target.value)}} value={nit_cedula}></input></div></>):
-                (<><div><input type='text' name='nit_cedula' placeholder='Nit' onChange={e=>{setNitCed(e.target.value)}} value={nit_cedula}></input></div>
-                <div><input type='text' name='names' placeholder='Razón Social' onChange={e=>{setNames(e.target.value)}} value={names}></input></div></>)
+                (<>                <div><input type='text' name='names' placeholder='Razón Social' onChange={e=>{setNames(e.target.value)}} value={names}></input></div>
+                <div><input type='text' name='nit_cedula' placeholder='Nit' onChange={e=>{setNitCed(e.target.value)}} value={nit_cedula}></input></div></>)
                 }
 
                 <div><input type='text' name='email' placeholder='Email' onChange={e=>{setEmail(e.target.value)}} value={email}></input></div>

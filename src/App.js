@@ -10,11 +10,11 @@ import { Session } from './components/Session';
 function App() {
   return (
     <div className="App">
-      <Header/>
+      {/*<Header/>*/}
       <div className='content'>
-        {/* <div className='lateral'><Aside/></div>
-        <div className='central-body'><Session/></div> */}
-        <Form></Form>
+        <div className='lateral'><Aside/></div>
+        <div className='central-body'><Session/></div>
+        {/*<Form></Form>*/}
       </div>
       <Footer/>
     </div>
