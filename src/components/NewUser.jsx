@@ -28,7 +28,12 @@ export const NewUser = () => {
                         <input type="text" id="repeatpassword" placeholder="*********" />
 
                         <label for="repeatpassword">Rol</label>
-                        <input type="text" id="rol" placeholder="admin/user" />
+                        <select>
+                            <option>----</option>
+                            <option>Administrador</option>
+                            <option>Usuario</option>
+                        </select>
+                        
 
                         <Link to='/'><button className="button-newuser" type="submit">Crear Usuario</button></Link>
 
