@@ -26,7 +26,10 @@ export const NewUser = () => {
 
                         <label for="repeatpassword">Vuelve a escribir la contraseña</label>
                         <input type="text" id="repeatpassword" placeholder="*********" />
-                
+
+                        <label for="repeatpassword">Rol</label>
+                        <input type="text" id="rol" placeholder="admin/user" />
+
                         <Link to='/'><button className="button-newuser" type="submit">Crear Usuario</button></Link>
 
                     </form>
