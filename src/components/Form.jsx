@@ -89,7 +89,7 @@ export const Form = () => {
                     </div>
                     <div>
                         <input  className='radio-input' type="radio" id="cert" name="cert" value="#" defaultChecked></input> 
-                        <label>N</label>
+                        <label>No</label>
                     </div>
                 </div>
                 

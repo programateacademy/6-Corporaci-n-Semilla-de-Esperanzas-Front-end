@@ -35,7 +35,7 @@ export const NewUser = () => {
                         </select>
                         
 
-                        <Link to='/'><button className="button-newuser" type="submit">Crear Usuario</button></Link>
+                        <Link className="button-newuser-link" to='/'><button className="button-newuser" type="submit">Crear Usuario</button></Link>
 
                     </form>
 
