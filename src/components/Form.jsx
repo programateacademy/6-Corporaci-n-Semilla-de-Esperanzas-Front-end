@@ -92,7 +92,7 @@ export const Form = () => {
             <div className='send-form'>
                 <div className='terms-form'>
                     <input className='radio-input' type="checkbox" id="html" name="jp" value="#"></input> 
-                    <label className='terms'>He leído y acepto el aviso de privaciodad y política de protección de datos personales.</label>
+                    <label className='terms'>He leído y acepto el aviso de privacidad y política de protección de datos personales.</label>
                 </div>
                 <div>
                     <button type='submit'>Enviar</button>

@@ -16,9 +16,9 @@ function App() {
       {/* <PopUp/> */}
       <NewUser/>
        {/* <Header/> */}
-      {/* <div className='content'>
-        <div className='lateral'><Aside/></div>
-        <div className='central-body'><Session/></div> */}
+      {/* <div className='content'> */}
+  
+        {/* <div className='central-body'><Session/></div> */}
         {/* <Form></Form> */}
       {/* </div> */}
       {/* <Footer/> */}

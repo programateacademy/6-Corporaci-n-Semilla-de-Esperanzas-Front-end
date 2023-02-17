@@ -6,7 +6,7 @@ export const Session = () => {
         <h2>Una propuesta para tiempos mejores</h2>
         <div className='login-admin-cont'>
             
-            <div className='form-login'>
+            <form className='form-login'>
                 <div><strong>Administrador</strong></div>
                 <div className='input'>
                     <label>Usuario</label>
@@ -25,7 +25,7 @@ export const Session = () => {
                 <div className='login-btn'>
                     <button>Ingresar</button>
                 </div>
-            </div>
+            </form>
             
             <div className='img-login-admin'></div>
         
