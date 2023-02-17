@@ -25,13 +25,12 @@
   display: flex;
   align-items: center;
   position: fixed;
+  justify-content: space-around;
 }
 
 @media (max-width: 900px) { 
   .header{
     background-color: white;
-    justify-content: center;
-
   }
 }
 
@@ -41,12 +40,58 @@
   }
 }
 
+.header h1{
+  color:white;
+  text-align: center;
+}
+
+@media (max-width: 900px) { 
+  .header h1{
+    color:#008000;
+    /* display: none; */
+  }
+  
+}
+
+@media (max-width: 800px) { 
+  .header h1{
+    color:#008000;
+    font-size: 25px;
+  }
+  
+}
+
+@media (max-width: 500px) { 
+  .header h1{
+    color:#008000;
+    font-size: 20px;
+  }
+  
+}
+@media (max-width: 340px) { 
+  .header h1{
+    color:#008000;
+    font-size: 18px;
+  }
+  
+}
 .cont-logo{
   width: 110px;
   height: 110px;
-  margin-left: 28px;
   display: flex;
   align-items: center;
+}
+
+.cont-icon-form{
+  width: 80px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.img-plant-icon{
+  width: 50px;
+  height: 50px;
 }
 
 @media (max-width: 445px) { 
@@ -62,6 +107,7 @@
 
 .content{
   display: flex;
+  justify-content: center;
   width: 1000px;
   margin: 0 auto;
   justify-content: center;
@@ -78,54 +124,6 @@
     .content{
     width:280px;
 }
-}
-/* -----------------------Aside--------------- */
-aside{
-  margin-top: 116px;
-  width: 200px;
-  height: 500px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  background-color:rgb(255, 255, 255);
- 
-}
-
-@media (max-width: 900px) { 
-  aside{
-   display: none;
-  }
-}
-.aside-sup{
-  margin-top: 45px;
-}
-
-.home-icon{
-  width: 60px;
-  height: 60px;
-  color:#008000;
-  
-}
-
-.img-plant-icon{
-  margin-top: 30px;
-  width: 50px;
-}
-
-@media (max-width: 900px) { 
-  .img-plant-icon{
-    margin-top: 0px;
-  }
-}
-.aside-inf{
-  text-align: center;
-}
-
-.admin-icon{
-  width: 60px;
-  height: 60px;
-  color:#008000;
 }
 
 /* -----------------Admin Login--------------- */
@@ -168,6 +166,11 @@ aside{
   font-style: italic;
 }
 
+@media (max-width: 500px) { 
+  .admin-login h2{
+    font-size: 15px;
+  }
+}
 .login-admin-cont{
   max-width: 800px;
   height: 490px;
@@ -344,20 +347,11 @@ aside{
     height: 40px
   }
   
-  .img-plant-icon{
-    margin-top: 30px;
-    width: 35px;
-  }
   .central-body{
     height: 100vh;
     
    }
 }
-  @media (max-width: 900px) { 
-    .img-plant-icon{
-      margin-top: 0px;
-    }
-  }
   
   .admin-icon{
     width: 40px;
@@ -367,7 +361,7 @@ aside{
 /* -----------------------Form--------------- */
 
 .cont-form{
-  margin: 115px auto 0px;
+  margin: 0 auto;
   background-image:url(./images/unidos.png);
   width: 1080px;
   height: 750px;
@@ -387,13 +381,11 @@ aside{
 @media (max-width: 800px) {  
 .cont-form{
   width: 650px;
-  margin: 115px auto 0px;
 }
 }
 @media (max-width:650px) {  
 .cont-form{
   width: 500px;
-   margin: 115px auto 0px;
 }
 }
 @media (max-width: 480px) { 
@@ -403,12 +395,12 @@ aside{
 }
 @media (max-width: 320px) { 
   .cont-form{
-    width: 320px;
+    width: 330px;
   }
 }
 .donation-form{
   margin: auto;
-  background-color: rgb(217, 217, 217,0.9);
+  background-color: rgb(217, 217, 217, 0.9);
   width: 700px;
   height: 750px;
   display: flex;
@@ -660,6 +652,26 @@ select{
   }
 }
 
+@media (max-width: 330px) { 
+  .send-form{
+    margin-top: 30px;
+    display: flex;
+    width: 315px;
+    justify-content: space-between;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 330px) { 
+  .send-form{
+    margin-top: 30px;
+    display: flex;
+    width: 315px;
+    justify-content: space-between;
+    font-size: 13px;
+  }
+}
+
 @media (max-width: 370px) { 
     .send-form{
     margin-top: 30px;
@@ -676,6 +688,7 @@ select{
   background-color: #008000;
   color: white;
   border-style: none;
+  cursor: pointer;
 }
 
 @media (max-width: 650px) { 
@@ -699,10 +712,38 @@ select{
   align-items: center;
 }
 
-@media (max-width: 370px) { 
+@media (max-width: 650px) { 
   .terms-form{
-  width: 220px;
+  width: 260px;
   display: flex;
   align-items: center;
 }
+
+}
+
+.admin-portal-link{
+  margin-top: 20px;
+  width: 320px;
+  height: 40px;
+}
+
+.admin-portal{
+  display: flex;
+  align-items: center;
+  width: 320px;
+  height: 40px;
+}
+
+.admin-portal button{
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.admin-portal span{
+  color:black;
+}
+
+.admin-portal .admin-icon{
+  color: #008000;
 }

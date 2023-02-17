@@ -1,6 +1,6 @@
 import React from "react";
 import "../newuser.css";
-
+import { Link } from "react-router-dom";
 
 export const NewUser = () => {
 
@@ -26,8 +26,11 @@ export const NewUser = () => {
 
                         <label for="repeatpassword">Vuelve a escribir la contraseña</label>
                         <input type="text" id="repeatpassword" placeholder="*********" />
-                
-                        <button className="button-newuser" type="submit">Crear Usuario</button>
+
+                        <label for="repeatpassword">Rol</label>
+                        <input type="text" id="rol" placeholder="admin/user" />
+
+                        <Link to='/'><button className="button-newuser" type="submit">Crear Usuario</button></Link>
 
                     </form>
 

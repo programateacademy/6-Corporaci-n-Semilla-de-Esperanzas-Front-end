@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   return (
@@ -7,6 +8,8 @@ export const Header = () => {
             <div className='cont-logo'>
                 <img className="img-enc" src={require("../images/LogoFundacionSemilla 2.png")} alt="logo"/>
             </div>
+            <h1>CORPORACIÓN SEMILLA DE ESPERANZA</h1>
+            <div className='cont-icon-form'><Link to='/'><img className="img-plant-icon" src={require("../images/plant.png")} alt="planta"/></Link></div>
         </div>
    </div>
        
