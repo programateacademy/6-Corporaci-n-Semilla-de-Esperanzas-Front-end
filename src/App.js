@@ -8,6 +8,7 @@ import {NewUser} from './components/NewUser';
 import { Header } from './components/Header';
 import { Session } from './components/Session';
 import {PopUp} from './components/PopUp';
+import Agradecimiento from './components/Agradecimiento';
 
 
 function App() {
