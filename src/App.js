@@ -7,13 +7,16 @@ import {NewUser} from './components/NewUser';
 import { Header } from './components/Header';
 import { Session } from './components/Session';
 import {PopUp} from './components/PopUp';
+import Agradecimiento from './components/Agradecimiento';
 
 
 function App() {
   return (
     <div className="App">
 
-      <PopUp/> 
+      <Agradecimiento/>
+
+      {/* <PopUp/> 
       <NewUser/>
       <Header/> 
         <div className='content'>
@@ -21,7 +24,7 @@ function App() {
           <div className='central-body'><Session/></div>
           <Form></Form>
         </div> 
-      <Footer/>
+      <Footer/> */}
     </div>
   );
 }
