@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from "react-router-dom";
 
 export const Session = () => {
   return (
@@ -23,7 +24,7 @@ export const Session = () => {
                     <label>Mostrar Contraseña</label>
                 </div>
                 <div className='login-btn'>
-                    <button>Ingresar</button>
+                   <Link to='/NewUser'><button>Ingresar</button></Link>
                 </div>
             </div>
             
