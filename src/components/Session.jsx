@@ -7,7 +7,7 @@ export const Session = () => {
         <div className='login-admin-cont'>
             
             <div className='form-login'>
-                <div><strong>Administrador</strong></div>
+                
                 <div className='input'>
                     <label>Usuario</label>
                     <input name='password' className='pass-input'  onChange=''  required/>
