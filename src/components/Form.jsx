@@ -19,6 +19,7 @@ export const Form = () => {
     const [certification, setCertification] = useState('');
     const [aditional, setAditional] = useState('');
     const [persona, setPersona] = useState(false);
+    const [money, setMoney] = useState(1);
     
     const handleNatural = () => {
         setPersona(true);
@@ -26,6 +27,13 @@ export const Form = () => {
     const handleJuridica = () => {
         setPersona(false);        
     }    
+
+    const handleMoney = () =>{
+        setMoney(1);
+    }
+    const handleBienes = () =>{
+        setMoney(2);
+    }
 
     //Agregar usuario
     const addDonation = async (e)=>{
@@ -48,7 +56,7 @@ export const Form = () => {
 
 
             <h1>¡Haz tu donación a Semillas de Esperanza hoy!</h1>
-            <h2>Tipo de persona</h2>
+            <h2><strong>Tipo de persona</strong></h2>
             <div className='person-type'>
                 <div>
                     <input className='radio-input' type="radio" id="html" name="person" onChange={e=>{setType(e.target.value)}} value={"Natural"} checked={type === "Natural"} onClick={handleNatural}></input> 
@@ -70,17 +78,26 @@ export const Form = () => {
 
                 <div><input type='text' name='email' placeholder='Email' onChange={e=>{setEmail(e.target.value)}} value={email}></input></div>
                 <div><input type='text' name='phone' placeholder='Celular' onChange={e=>{setPhone(e.target.value)}} value={phone}></input></div>
-                <div>Tipo de donación</div>
+                <div className='req'>Tipo de donación</div>
                 <div>
                     <select onChange={e=>{setDestination(e.target.value)}} value={destination}>
                         <option>Seleccione</option>
+                        <option onClick={handleMoney}>Dinero</option>
+                        <option onClick={handleBienes}>Bienes</option>
+                       
+                    </select>
+                </div>
+                {money === 1? (<><div className='req'><strong>Cuenta Ahorros</strong></div>
+                <div className='cuentaNum'><strong> ---- Bancolombia ----</strong> 008 - 017365 -05</div></>) :
+                    (<><div>Destino de la donación</div>
+                    <select>
                         <option>Infrasestructura</option>
                         <option>Cocina</option>
                         <option>Comedor</option>
                         <option>Huerta</option>
                         <option>Otro</option>
-                    </select>
-                </div>
+                    </select></>)}
+                
                 <div className='req'>Requiere Certificado</div>
                 <div className='certif'>
                      <div>
