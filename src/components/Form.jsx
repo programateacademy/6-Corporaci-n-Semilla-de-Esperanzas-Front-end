@@ -89,7 +89,7 @@ export const Form = () => {
                 </div>
                 {money === 1? (<><div className='req'><strong>Cuenta Ahorros</strong></div>
                 <div className='cuentaNum'><strong> ---- Bancolombia ----</strong> 008 - 017365 -05</div></>) :
-                    (<><div>Destino de la donación</div>
+                    (<><div className='req'>Destino de la donación</div>
                     <select>
                         <option>Infrasestructura</option>
                         <option>Cocina</option>
