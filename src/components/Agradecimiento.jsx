@@ -16,7 +16,7 @@ export const Agradecimiento = () => {
 
         <div className="description-gratitude">
             <p>¡Hola! (nombre donante)</p>
-            <p>¡Gracias por el interés en esta donación! Con su aporte continúa brotando ésta semilla de vida en la comuna 3 de Medellín.</p>
+            <p>¡Gracias por el interés en esta donación! Con su aporte continúa brotando esta semilla de vida en la comuna 3 de Medellín.</p>
         </div>
 
 

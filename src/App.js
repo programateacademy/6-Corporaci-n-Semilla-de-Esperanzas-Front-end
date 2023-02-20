@@ -9,6 +9,7 @@ import { Header } from './components/Header';
 import { Session } from './components/Session';
 import {PopUp} from './components/PopUp';
 import Agradecimiento from './components/Agradecimiento';
+import TableData from './components/TableData';
 
 
 function App() {
@@ -20,8 +21,9 @@ function App() {
         <Route path='/' element={<Form/>}/>
         <Route path='/Session' element={<><Header/> <div className='content'><div className='central-body'><Session/></div></div></>   }/>
         <Route path='/NewUser' element={<NewUser/>}/>
+        <Route path='/Agradecimiento' element={<Agradecimiento/>}/>
       </Routes>
-
+    
     </div>
   );
 }

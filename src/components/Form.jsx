@@ -74,11 +74,13 @@ export const Form = () => {
                 <div>
                     <select onChange={e=>{setDestination(e.target.value)}} value={destination}>
                         <option>Seleccione</option>
-                        <option>Infrasestructura</option>
+                        <option>Dinero</option>
+                        <option>Bienes</option>
+                        {/* <option>Infrasestructura</option>
                         <option>Cocina</option>
                         <option>Comedor</option>
                         <option>Huerta</option>
-                        <option>Otro</option>
+                        <option>Otro</option> */}
                     </select>
                 </div>
                 <div className='req'>Requiere Certificado</div>
@@ -104,7 +106,7 @@ export const Form = () => {
                     <label className='terms'>He leído y acepto el aviso de privacidad y política de protección de datos personales.</label>
                 </div>
                 <div>
-                    <button type='submit'>Enviar</button>
+                    <Link to='/Agradecimiento'><button type='submit'>Enviar</button></Link>
                 </div>
             </div>
             <Link to= "/Session" className='admin-portal-link'><div className='admin-portal'>
