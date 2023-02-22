@@ -32,7 +32,7 @@ export const Form = () => {
         setPersona(false);        
     }    
 
-    //Agregar usuario
+    //Agregar Formulario
     const addDonation = async (e)=>{
         e.preventDefault();
         try {

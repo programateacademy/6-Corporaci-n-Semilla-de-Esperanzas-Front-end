@@ -1,8 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import "../newuser.css";
+import axios from "axios";
 import { Link } from "react-router-dom";
 
+let url = "http://localhost:3030";
+
 export const NewUser = () => {
+
+    const [user, setUser] = useState({
+        names: "",
+        email: "",
+        password: ""
+    });
+
+    const handleInput =(e)=>{
+        let {name, value} = e.target;
+        let userData = {... user, [name]: value};
+        setUser(userData);
+    };
+
+   const register = async(e)=>{
+        e.preventDefault();
+        try {
+            const res = await axios.post(url+"/user/sign", user);
+        } catch (error) {
+            console.log(error);
+        }
+   };
 
     return (
     <div className="container-newuser">
@@ -16,26 +40,26 @@ export const NewUser = () => {
                     <form action="#">
                     
                         <label for="name">Nombre Completo</label>
-                        <input type="text" id="name" placeholder="p. ej. Pedro López" />
+                        <input name="names" type="text" id="name" placeholder="p. ej. Pedro López" />
 
                         <label for="email">Email</label>
-                        <input type="text" id="email" placeholder="nombre@ejemplo.com" />
+                        <input name="email" type="text" id="email" placeholder="nombre@ejemplo.com" />
 
                         <label for="password">Contraseña</label>
-                        <input type="text" id="password" placeholder="*********" />
+                        <input name="password" type="text" id="password" placeholder="*********" />
 
                         <label for="repeatpassword">Vuelve a escribir la contraseña</label>
-                        <input type="text" id="repeatpassword" placeholder="*********" />
+                        <input name="" type="text" id="repeatpassword" placeholder="*********" />
 
-                        <label for="repeatpassword">Rol</label>
+                        <label>Rol</label>
                         <select>
                             <option>----</option>
                             <option>Administrador</option>
                             <option>Usuario</option>
                         </select>
                         
-
-                        <Link className="button-newuser-link" to='/'><button className="button-newuser" type="submit">Crear Usuario</button></Link>
+                        <button className="button-newuser">Enviar</button>
+                        {/*<Link className="button-newuser-link" to='/'><button className="button-newuser" type="submit">Crear Usuario</button></Link>*/}
 
                     </form>
 
