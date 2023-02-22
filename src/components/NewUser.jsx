@@ -8,14 +8,15 @@ let url = "http://localhost:3030";
 export const NewUser = () => {
 
     const [user, setUser] = useState({
-        names: "",
+        name: "",
         email: "",
-        password: ""
+        password: "",
+        role: ""
     });
 
     const handleInput =(e)=>{
         let {name, value} = e.target;
-        let userData = {... user, [name]: value};
+        let userData = {...user, [name]: value};
         setUser(userData);
     };
 
@@ -23,6 +24,7 @@ export const NewUser = () => {
         e.preventDefault();
         try {
             const res = await axios.post(url+"/user/sign", user);
+            console.log(res);
         } catch (error) {
             console.log(error);
         }
@@ -37,25 +39,25 @@ export const NewUser = () => {
 
                 <span>Registro De Nuevo Usuario</span>
                 
-                    <form action="#">
+                    <form onSubmit={register}>
                     
                         <label for="name">Nombre Completo</label>
-                        <input name="names" type="text" id="name" placeholder="p. ej. Pedro López" />
+                        <input name="name" type="text" id="name" onChange={handleInput} value={user.name} placeholder="p. ej. Pedro López" />
 
                         <label for="email">Email</label>
-                        <input name="email" type="text" id="email" placeholder="nombre@ejemplo.com" />
+                        <input name="email" type="text" id="email" onChange={handleInput} value={user.email} placeholder="nombre@ejemplo.com" />
 
                         <label for="password">Contraseña</label>
-                        <input name="password" type="text" id="password" placeholder="*********" />
+                        <input name="password" type="text" id="password" onChange={handleInput} value={user.password} placeholder="*********" />
 
                         <label for="repeatpassword">Vuelve a escribir la contraseña</label>
                         <input name="" type="text" id="repeatpassword" placeholder="*********" />
 
                         <label>Rol</label>
-                        <select>
+                        <select name="role" onChange={handleInput} value={user.role}>
                             <option>----</option>
-                            <option>Administrador</option>
-                            <option>Usuario</option>
+                            <option>admin</option>
+                            <option>user</option>
                         </select>
                         
                         <button className="button-newuser">Enviar</button>
