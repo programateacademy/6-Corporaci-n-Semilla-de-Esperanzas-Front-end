@@ -42,7 +42,7 @@ export const Form = () => {
           formData.append('aditional', aditional);
       
           // Enviar formulario al servidor de correo
-          const formUrl = 'https://formspree.io/f/xpzednbr';
+          const formUrl = 'https://formspree.io/f/mlekndbd';
           const formWindow = window.open(formUrl, '_blank');
           if (formWindow) {
             const formElement = formWindow.document.createElement('form');
