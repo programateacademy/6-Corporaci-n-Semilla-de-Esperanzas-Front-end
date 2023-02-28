@@ -19,21 +19,18 @@ export const Form = () => {
     const [certification, setCertification] = useState('');
     const [aditional, setAditional] = useState('');
     const [persona, setPersona] = useState(false);
-    const [money, setMoney] = useState(1);
+    const [money, setMoney] = useState(false);
+
+    console.log(money);
     
     const handleNatural = () => {
         setPersona(true);
+        console.log("handleNatu" ,persona);
     }
     const handleJuridica = () => {
-        setPersona(false);        
+        setPersona(false); 
+        console.log("handleJuri" ,persona);       
     }    
-
-    const handleMoney = () =>{
-        setMoney(1);
-    }
-    const handleBienes = () =>{
-        setMoney(2);
-    }
 
     //Agregar usuario
     const addDonation = async (e)=>{
@@ -80,23 +77,26 @@ export const Form = () => {
                 <div><input type='text' name='phone' placeholder='Celular' onChange={e=>{setPhone(e.target.value)}} value={phone}></input></div>
                 <div className='req'>Tipo de donación</div>
                 <div>
-                    <select onChange={e=>{setDestination(e.target.value)}} value={destination}>
-                        <option>Seleccione</option>
-                        <option onClick={handleMoney}>Dinero</option>
-                        <option onClick={handleBienes}>Bienes</option>
-                       
+                    <select onChange={(e) => setMoney(e.target.value)}>
+
+                        <option value="2">Bienes</option>
+                        <option value ="1">Dinero</option>
+                        
                     </select>
                 </div>
-                {money === 1? (<><div className='req'><strong>Cuenta Ahorros</strong></div>
-                <div className='cuentaNum'><strong> ---- Bancolombia ----</strong> 008 - 017365 -05</div></>) :
+                {money == 1? 
+                (<><div className='req'><strong>Cuenta Ahorros</strong></div>
+                <div className='cuentaNum'><strong> ---- Bancolombia ----</strong> 008 - 017365 -05</div></>):
                     (<><div className='req'>Destino de la donación</div>
-                    <select>
+                    <select onChange={e=>{setDestination(e.target.value)}} value={destination}>
+                        <option>Seleccione</option>
                         <option>Infrasestructura</option>
                         <option>Cocina</option>
                         <option>Comedor</option>
                         <option>Huerta</option>
                         <option>Otro</option>
-                    </select></>)}
+                    </select>
+                    </>)}
                 
                 <div className='req'>Requiere Certificado</div>
                 <div className='certif'>
