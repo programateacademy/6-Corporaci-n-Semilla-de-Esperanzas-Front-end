@@ -34,8 +34,9 @@ function TableData() {
             <th>Teléfono</th>
             <th>Destino de donación</th>
             <th>Certificación</th>
-            <th>Comentarios</th>          
-            <th>Estado de la donación</th>
+            <th>Comentarios</th>      
+            <th>Fecha de creación</th>    
+            <th>Estado de la donación</th>            
           </tr>
         </thead>
         
@@ -53,12 +54,13 @@ function TableData() {
               <td>{form.destination_don}</td>
               <td>{form.certification}</td>
               <td>{form.aditional}</td>
-              <td>{form.state}</td>
+              <td>{form.createdAt}</td>
+              <td>{form.state}</td>              
               <td>
                 {/*<select
                   value={donation.estado}
-                  onChange={(e) => handleStatusChange(donation.id, e.target.value)}
-            >
+                  onChange={(e) => handleStatusChange(donation.id, e.target.value)}>
+                  
                   <option value="en proceso">En proceso</option>
                   <option value="aprobada">Aprobada</option>
                   <option value="rechazada">Rechazada</option>
