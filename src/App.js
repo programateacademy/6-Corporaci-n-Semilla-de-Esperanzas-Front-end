@@ -19,7 +19,7 @@ function App() {
       {/* <PopUp/>  */}
       <Routes>
         <Route path='/' element={<Form/>}/>
-        <Route path='/Session' element={<><Header/> <div className='content'><div className='central-body'><Session/></div></div></>   }/>
+        <Route path='/Session' element={<><Header/> <div className='content'><div className='central-body'><Session/></div></div></>}/>
         <Route path='/NewUser' element={<NewUser/>}/>
         <Route path='/Agradecimiento' element={<Agradecimiento/>}/>
       </Routes>

@@ -401,7 +401,7 @@
   margin: auto;
   background-color: rgb(217, 217, 217, 0.9);
   width: 700px;
-  height: 750px;
+  height: 825px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -744,6 +744,10 @@ select{
 
 .admin-portal .admin-icon{
   color: #008000;
+}
+
+.cuentaNum{
+  font-size: 18px;
 }
 
 /* --------Table------------- */
