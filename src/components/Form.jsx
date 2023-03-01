@@ -10,18 +10,25 @@ let url = "http://localhost:3030";
 
 export const Form = () => {
 
-    const [type, setType] = useState('');
-    const [nit_cedula, setNitCed] = useState('');
-    const [names, setNames] = useState('');
-    const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState('');
-    const [destination, setDestination] = useState('');
-    const [certification, setCertification] = useState('');
-    const [aditional, setAditional] = useState('');
+    /*const [type, setType] = useState('');*/
     const [persona, setPersona] = useState(false);
-    const [money, setMoney] = useState(false);
+    const [form, setForm] = useState({
+        type: "",
+        nit_cedula: "",
+        name: "",
+        email: "",
+        phone: "",
+        destination: "",
+        certification: "",
+        aditional: ""
+    });
 
-    console.log(money);
+    const handleInput = (e)=>{
+        let {name, value} = e.target;
+        let newForm = {...form, [name]: value};
+        setForm(newForm);
+    };
+
     
     const handleNatural = () => {
         setPersona(true);
@@ -32,11 +39,11 @@ export const Form = () => {
         console.log("handleJuri" ,persona);       
     }    
 
-    //Agregar usuario
+    //Agregar Formulario
     const addDonation = async (e)=>{
         e.preventDefault();
         try {
-            const res = await axios.post(url+'/forms/new', {type: type, nit_cedula: nit_cedula, name: names, email: email, phone: phone, destination_don: destination, certification: certification, aditional: aditional});
+            const res = await axios.post(url+'/forms/new',form);
             console.log(res);
             console.log("formulario agregado")
         } catch (error) {
@@ -56,26 +63,26 @@ export const Form = () => {
             <h2><strong>Tipo de persona</strong></h2>
             <div className='person-type'>
                 <div>
-                    <input className='radio-input' type="radio" id="html" name="person" onChange={e=>{setType(e.target.value)}} value={"Natural"} checked={type === "Natural"} onClick={handleNatural}></input> 
+                    <input className='radio-input' type="radio" id="html" name="type" onChange={handleInput} value={form.type} checked={"Natural"} onClick={handleNatural}></input> 
                     <label>Natural</label>
                 </div>
                 <div>
-                    <input className='radio-input' type="radio" id="html" name="person" onChange={e=>{setType(e.target.value)}} value={"Jurídica"} checked={type === "Jurídica"} onClick={handleJuridica} ></input> 
+                    <input className='radio-input' type="radio" id="html" name="type" onChange={handleInput} value={form.type} checked={"Juridica"}  onClick={handleJuridica} ></input> 
                     <label>Jurídica</label>
                 </div>
             </div>
             <div className='form-fields'>
                
                 {persona?
-                (<><div><input type='text' name='names' placeholder='Nombre' onChange={e=>{setNames(e.target.value)}} value={names}></input></div>
-                <div><input type='text' name='nit_cedula' placeholder='Cédula' onChange={e=>{setNitCed(e.target.value)}} value={nit_cedula}></input></div></>):
-                (<>                <div><input type='text' name='names' placeholder='Razón Social' onChange={e=>{setNames(e.target.value)}} value={names}></input></div>
-                <div><input type='text' name='nit_cedula' placeholder='Nit' onChange={e=>{setNitCed(e.target.value)}} value={nit_cedula}></input></div></>)
+                (<><div><input type='text' name='name' placeholder='Nombre' onChange={handleInput} value={form.name}></input></div>
+                <div><input type='text' name='nit_cedula' placeholder='Cédula' onChange={handleInput} value={form.nit_cedula}></input></div></>):
+                (<><div><input type='text' name='name' placeholder='Razón Social' onChange={handleInput} value={form.name}></input></div>
+                <div><input type='text' name='nit_cedula' placeholder='Nit' onChange={handleInput} value={form.nit_cedula}></input></div></>)
                 }
 
-                <div><input type='text' name='email' placeholder='Email' onChange={e=>{setEmail(e.target.value)}} value={email}></input></div>
-                <div><input type='text' name='phone' placeholder='Celular' onChange={e=>{setPhone(e.target.value)}} value={phone}></input></div>
-                <div className='req'>Tipo de donación</div>
+                <div><input type='text' name='email' placeholder='Email' onChange={handleInput} value={form.email}></input></div>
+                <div><input type='text' name='phone' placeholder='Celular' onChange={handleInput} value={form.phone}></input></div>
+                <div>Tipo de donación</div>
                 <div>
                     <select onChange={(e) => setMoney(e.target.value)}>
 
@@ -90,24 +97,22 @@ export const Form = () => {
                     (<><div className='req'>Destino de la donación</div>
                     <select onChange={e=>{setDestination(e.target.value)}} value={destination}>
                         <option>Seleccione</option>
-                        <option>Dinero</option>
-                        <option>Bienes</option>
-                        {/* <option>Infrasestructura</option>
+                        <option>Infrasestructura</option>
                         <option>Cocina</option>
                         <option>Comedor</option>
                         <option>Huerta</option>
-                        <option>Otro</option> */}
+                        <option>Otro</option>
                     </select>
                     </>)}
                 
                 <div className='req'>Requiere Certificado</div>
                 <div className='certif'>
                      <div>
-                        <input className='radio-input' type="radio" id="html" name="cert" onChange={e=>{setCertification(e.target.value)}} value={certification}></input> 
+                        <input className='radio-input' type="radio" id="html" name="certification" onChange={handleInput} value={form.certification}></input> 
                         <label>Si</label>
                     </div>
                     <div>
-                        <input  className='radio-input' type="radio" id="cert" name="cert" value="#" defaultChecked></input> 
+                        <input  className='radio-input' type="radio" id="html" name="certification" value="#"></input> 
                         <label>No</label>
                     </div>
                 </div>
@@ -115,7 +120,7 @@ export const Form = () => {
                
             </div>
             <div className='aditional-comments'>
-                    <input placeholder='Comentario Adicional' type='text' onChange={e=>{setAditional(e.target.value)}} value={aditional}></input>
+                    <input placeholder='Comentario Adicional' name='aditional' type='text' onChange={handleInput} value={form.aditional}></input>
             </div>
             <div className='send-form'>
                 <div className='terms-form'>
