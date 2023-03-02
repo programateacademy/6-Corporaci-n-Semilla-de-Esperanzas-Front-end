@@ -12,13 +12,14 @@ export const Form = () => {
 
     /*const [type, setType] = useState('');*/
     const [persona, setPersona] = useState(false);
+    const [money, setMoney] = useState(false);
     const [form, setForm] = useState({
         type: "",
         nit_cedula: "",
         name: "",
         email: "",
         phone: "",
-        destination: "",
+        destination_don: "",
         certification: "",
         aditional: ""
     });
@@ -63,25 +64,25 @@ export const Form = () => {
             <h2><strong>Tipo de persona</strong></h2>
             <div className='person-type'>
                 <div>
-                    <input className='radio-input' type="radio" id="html" name="type" onChange={handleInput} value={form.type} checked={"Natural"} onClick={handleNatural}></input> 
+                    <input className='radio-input' type="radio"  name="type" onChange={handleInput} value={form.type = 'natural'} onClick={handleNatural}></input> 
                     <label>Natural</label>
                 </div>
                 <div>
-                    <input className='radio-input' type="radio" id="html" name="type" onChange={handleInput} value={form.type} checked={"Juridica"}  onClick={handleJuridica} ></input> 
+                    <input className='radio-input' type="radio"  name="type" onChange={handleInput} value={form.type = 'juridica'} onClick={handleJuridica} ></input> 
                     <label>Jurídica</label>
                 </div>
             </div>
             <div className='form-fields'>
                
                 {persona?
-                (<><div><input type='text' name='name' placeholder='Nombre' onChange={handleInput} value={form.name}></input></div>
-                <div><input type='text' name='nit_cedula' placeholder='Cédula' onChange={handleInput} value={form.nit_cedula}></input></div></>):
-                (<><div><input type='text' name='name' placeholder='Razón Social' onChange={handleInput} value={form.name}></input></div>
-                <div><input type='text' name='nit_cedula' placeholder='Nit' onChange={handleInput} value={form.nit_cedula}></input></div></>)
+                (<><div><input type='text' name='name' placeholder='Nombre' onChange={handleInput} value={form.name} required></input></div>
+                <div><input type='text' name='nit_cedula' placeholder='Cédula' onChange={handleInput} value={form.nit_cedula} required></input></div></>):
+                (<><div><input type='text' name='name' placeholder='Razón Social' onChange={handleInput} value={form.name} required></input></div>
+                <div><input type='text' name='nit_cedula' placeholder='Nit' onChange={handleInput} value={form.nit_cedula} required></input></div></>)
                 }
 
                 <div><input type='text' name='email' placeholder='Email' onChange={handleInput} value={form.email}></input></div>
-                <div><input type='text' name='phone' placeholder='Celular' onChange={handleInput} value={form.phone}></input></div>
+                <div><input type='number' name='phone' placeholder='Celular' onChange={handleInput} value={form.phone}></input></div>
                 <div>Tipo de donación</div>
                 <div>
                     <select onChange={(e) => setMoney(e.target.value)}>
@@ -93,9 +94,9 @@ export const Form = () => {
                 </div>
                 {money == 1? 
                 (<><div className='req'><strong>Cuenta Ahorros</strong></div>
-                <div className='cuentaNum'><strong> ---- Bancolombia ----</strong> 008 - 017365 -05</div></>):
+                <div className='cuentaNum'><label> ---- Bancolombia ----</label> 008 - 017365 -05</div></>):
                     (<><div className='req'>Destino de la donación</div>
-                    <select onChange={e=>{setDestination(e.target.value)}} value={destination}>
+                    <select name = 'destination_don' onChange={handleInput} value={form.destination_don}>
                         <option>Seleccione</option>
                         <option>Infrasestructura</option>
                         <option>Cocina</option>
@@ -128,7 +129,7 @@ export const Form = () => {
                     <label className='terms'>He leído y acepto el aviso de privacidad y política de protección de datos personales.</label>
                 </div>
                 <div>
-                    <Link to='/Agradecimiento'><button type='submit'>Enviar</button></Link>
+                   <button type='submit'> Enviar</button>
                 </div>
             </div>
             <Link to= "/Session" className='admin-portal-link'><div className='admin-portal'>
