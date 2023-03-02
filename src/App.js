@@ -16,10 +16,11 @@ function App() {
       <div className='content'>
         {/*<div className='lateral'><Aside/></div>
         <div className='central-body'><Session/></div>
-       <Form></Form>
+       <TableData/>
        <NewUser/>
         */}
-         <TableData/>
+        <Form></Form>
+         
       </div>
       <Footer/>
     </div>

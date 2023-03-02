@@ -13,7 +13,7 @@ export const Form = () => {
         name: "",
         email: "",
         phone: "",
-        destination: "",
+        destination_don: "",
         certification: "",
         aditional: ""
     });
@@ -52,11 +52,11 @@ export const Form = () => {
             <h2>Tipo de persona</h2>
             <div className='person-type'>
                 <div>
-                    <input className='radio-input' type="radio" id="html" name="type" onChange={handleInput} value={form.type} checked={"Natural"} onClick={handleNatural}></input> 
+                    <input className='radio-input' type="radio" id="html" name="type" onChange={handleInput} value={form.type="natural"}  onClick={handleNatural}></input> 
                     <label>Natural</label>
                 </div>
                 <div>
-                    <input className='radio-input' type="radio" id="html" name="type" onChange={handleInput} value={form.type} checked={"Juridica"}  onClick={handleJuridica} ></input> 
+                    <input className='radio-input' type="radio" id="html" name="type" onChange={handleInput} value={form.type="Juridica"}  onClick={handleJuridica} ></input> 
                     <label>Jurídica</label>
                 </div>
             </div>
@@ -73,7 +73,7 @@ export const Form = () => {
                 <div><input type='text' name='phone' placeholder='Celular' onChange={handleInput} value={form.phone}></input></div>
                 <div>Tipo de donación</div>
                 <div>
-                    <select name='destination' onChange={handleInput} value={form.destination}>
+                    <select name='destination_don' onChange={handleInput} value={form.destination_don}>
                         <option>Seleccione</option>
                         <option>Infrasestructura</option>
                         <option>Cocina</option>
