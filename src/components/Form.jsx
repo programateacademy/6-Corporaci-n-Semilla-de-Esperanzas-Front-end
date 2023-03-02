@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { BsFillPersonFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
+=======
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+>>>>>>> 1cf3a09ba7897aa8b5a29b806346ad61eeb2828c
 
 let url = "http://localhost:3030";
 
@@ -53,14 +58,14 @@ export const Form = () => {
             <form className='donation-form' onSubmit={addDonation}>
 
                 <h1>¡Haz tu donación a Semillas de Esperanza hoy!</h1>
-                <h2>Tipo de persona</h2>
+                <h2>Tipo de personas</h2>
                 <div className='person-type'>
                     <div>
-                        <input className='radio-input' type="radio" name="type" onChange={handleInput} value={form.type = 'natural'} onClick={handleNatural}></input>
+                        <input className='radio-input' type="radio" name="type" onChange={handleInput} value='natural' onClick={handleNatural}></input>
                         <label>Natural</label>
                     </div>
                     <div>
-                        <input className='radio-input' type="radio" name="type" onChange={handleInput} value={form.type = 'juridica'} onClick={handleJuridica} ></input>
+                        <input className='radio-input' type="radio" name="type" onChange={handleInput} value='juridica' onClick={handleJuridica} ></input>
                         <label>Jurídica</label>
                     </div>
                 </div>
@@ -101,11 +106,11 @@ export const Form = () => {
                     <div className='req'>Requiere Certificado</div>
                     <div className='certif'>
                         <div>
-                            <input className='radio-input' type="radio" id="html" name="certification" onChange={handleInput} value={form.certification}></input>
+                            <input className='radio-input' type="radio" id="html" name="certification" onChange={handleInput} value='SI'></input>
                             <label>Si</label>
                         </div>
                         <div>
-                            <input className='radio-input' type="radio" id="html" name="certification" value="#"></input>
+                            <input className='radio-input' type="radio" id="html" name="certification" onChange={handleInput} value='NO'></input>
                             <label>No</label>
                         </div>
                     </div>
@@ -115,7 +120,7 @@ export const Form = () => {
                 </div>
                 <div className='send-form'>
                     <div className='terms-form'>
-                        <input className='radio-input' type="checkbox" id="html" name="jp" value="#"></input>
+                        <input className='radio-input' type="checkbox" id="html" name="jp" value="" required></input>
                         <label>He leído y acepto el aviso de privaciodad y política de protección de datos personales.</label>
                     </div>
                     <div>
