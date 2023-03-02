@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 let url = "http://localhost:3030";
 
@@ -55,14 +55,14 @@ export const Form = () => {
             <form className='donation-form' onSubmit={addDonation}>
 
                 <h1>¡Haz tu donación a Semillas de Esperanza hoy!</h1>
-                <h2>Tipo de persona</h2>
+                <h2>Tipo de personas</h2>
                 <div className='person-type'>
                     <div>
-                        <input className='radio-input' type="radio" name="type" onChange={handleInput} value={form.type = 'natural'} onClick={handleNatural}></input>
+                        <input className='radio-input' type="radio" name="type" onChange={handleInput} value='natural' onClick={handleNatural}></input>
                         <label>Natural</label>
                     </div>
                     <div>
-                        <input className='radio-input' type="radio" name="type" onChange={handleInput} value={form.type = 'juridica'} onClick={handleJuridica} ></input>
+                        <input className='radio-input' type="radio" name="type" onChange={handleInput} value='juridica' onClick={handleJuridica} ></input>
                         <label>Jurídica</label>
                     </div>
                 </div>
