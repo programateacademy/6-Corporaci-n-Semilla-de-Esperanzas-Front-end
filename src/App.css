@@ -6,10 +6,10 @@
 
 @media (max-width: 900px) { 
   .App{
-    background-image:url(./images/manos1.png);
+    /* background-image:url(./images/manos1.png);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center center;
+    background-position: center center; */
     min-height: 90%;
     width: 100vw;
     overflow: hidden;
@@ -25,34 +25,78 @@
   display: flex;
   align-items: center;
   position: fixed;
+  justify-content: space-around;
 }
 
 @media (max-width: 900px) { 
   .header{
     background-color: white;
-    justify-content: center;
-
   }
 }
 
 @media (max-width: 445px) { 
   .header{
-    height: 85px;
+    height: 80px;
+  }
+}
+
+.header h1{
+  color:white;
+  text-align: center;
+}
+
+@media (max-width: 900px) { 
+  .header h1{
+    color:#008000;
+    /* display: none; */
+  }
+  
+}
+
+@media (max-width: 800px) { 
+  .header h1{
+    color:#008000;
+    font-size: 25px;
+  }
+  
+}
+
+@media (max-width: 500px) { 
+  .header h1{
+    color:#008000;
+    font-size: 20px;
+  }
+}
+@media (max-width:445px) { 
+  .header h1{
+    color:#008000;
+    font-size: 16px;
   }
 }
 
 .cont-logo{
   width: 110px;
   height: 110px;
-  margin-left: 28px;
   display: flex;
   align-items: center;
 }
 
+.cont-icon-form{
+  width: 80px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.img-plant-icon{
+  width: 50px;
+  height: 50px;
+}
+
 @media (max-width: 445px) { 
-  .cont-logo{
-    width: 80px;
-    height: 80px;
+  .img-plant-icon{
+    width: 35px;
+    height: 35px;
   }
 }
 
@@ -62,8 +106,10 @@
 
 .content{
   display: flex;
+  justify-content: center;
   width: 1000px;
   margin: 0 auto;
+  justify-content: center;
 }
 
 
@@ -78,58 +124,11 @@
     width:280px;
 }
 }
-/* -----------------------Aside--------------- */
-aside{
-  margin-top: 116px;
-  width: 200px;
-  height: 500px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  background-color:rgb(255, 255, 255);
- 
-}
-
-@media (max-width: 900px) { 
-  aside{
-   display: none;
-  }
-}
-.aside-sup{
-  margin-top: 45px;
-}
-
-.home-icon{
-  width: 60px;
-  height: 60px;
-  color:#008000;
-  
-}
-
-.img-plant-icon{
-  margin-top: 30px;
-  width: 50px;
-}
-
-@media (max-width: 900px) { 
-  .img-plant-icon{
-    margin-top: 0px;
-  }
-}
-.aside-inf{
-  text-align: center;
-}
-
-.admin-icon{
-  width: 60px;
-  height: 60px;
-  color:#008000;
-}
 
 /* -----------------Admin Login--------------- */
 
 .admin-login{
+ 
   width: 800px;
   height: 620px;
   margin-top: 115px;
@@ -166,6 +165,11 @@ aside{
   font-style: italic;
 }
 
+@media (max-width: 500px) { 
+  .admin-login h2{
+    font-size: 15px;
+  }
+}
 .login-admin-cont{
   max-width: 800px;
   height: 490px;
@@ -317,25 +321,24 @@ aside{
 
 /* ---------------------------Footer------------------ */
 
-@media (max-width: 900px) { 
+
   footer{
   width: 100%;
   height: 80px;
   background-color: #ffffff;
   margin-top: auto;
- 
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   
 }
-}
 
-@media (min-width:900px ) { 
+
+/* @media (min-width:900px ) { 
   footer{
     display:none;
   }
-}
+} */
 
 @media (max-width: 660px) { 
   .home-icon{
@@ -343,20 +346,11 @@ aside{
     height: 40px
   }
   
-  .img-plant-icon{
-    margin-top: 30px;
-    width: 35px;
-  }
   .central-body{
     height: 100vh;
     
    }
 }
-  @media (max-width: 900px) { 
-    .img-plant-icon{
-      margin-top: 0px;
-    }
-  }
   
   .admin-icon{
     width: 40px;
@@ -366,24 +360,68 @@ aside{
 /* -----------------------Form--------------- */
 
 .cont-form{
-  margin: 115px auto 0px;
+  margin: 0 auto;
   background-image:url(./images/unidos.png);
-  width: 1080px;
-  height: 750px;
+  width: 100%;
+  height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+  display: flex;
+  justify-content: center;
 }
-
+/* 
+@media (max-width: 1024px) {  
+.cont-form{
+  width: 800px;
+  height: 750px;
+}
+}
+@media (max-width: 800px) {  
+.cont-form{
+  width: 650px;
+}
+}
+@media (max-width:650px) {  
+.cont-form{
+  width: 500px;
+}
+}
+@media (max-width: 480px) { 
+  .cont-form{
+    width: 400px;
+  }
+}
+@media (max-width: 350px) { 
+  .cont-form{
+    width: 330px;
+  }
+} */
 .donation-form{
   margin: auto;
-  background-color: #d9d9d9;
+  background-color: rgb(217, 217, 217, 0.9);
   width: 700px;
-  height: 750px;
+  height: 825px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+}
+
+@media (max-width: 1024px) { 
+.donation-form{
+  width: 600px;
+}
+}
+@media (max-width: 800px) { 
+.donation-form{
+  width: 550px;
+}
+}
+@media (max-width: 650px) { 
+.donation-form{
+  width: 400px;
+  height: 700px;
+}
 }
 
 .donation-form h1{
@@ -393,11 +431,24 @@ aside{
   margin-top: 20px;
 }
 
+@media (max-width: 650px) { 
+  .donation-form h1{
+  width: 300px;
+  font-size: 20px;
+}
+}
+
 .donation-form h2{
   font-size: 25px;
   color: #008000;
   margin-top: 30px;
   font-weight: 400;
+}
+
+@media (max-width: 650px) { 
+  .donation-form h2{
+  font-size: 20px;
+}
 }
 
 .donation-form label{
@@ -411,10 +462,22 @@ aside{
   justify-content: space-around;
 }
 
+@media (max-width: 650px) { 
+  .person-type{
+  width: 300px;
+}
+
+}
+
 .person-type label{
   font-size: 20px;
 }
 
+@media (max-width: 650px) { 
+  .person-type label{
+    font-size: 15px;
+  }
+}
 .form-fields{
   display: flex;
   flex-wrap: wrap;
@@ -424,6 +487,25 @@ aside{
   font-size: 20px;
 }
 
+@media (max-width: 650px) { 
+  .form-fields{
+    display: flex;
+    flex-wrap: wrap;
+    width: 500px;
+    gap: 15px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 370px) { 
+  .form-fields{
+    display: flex;
+    flex-wrap: wrap;
+    width:370px;
+    gap: 5px;
+    font-size: 15px;
+  }
+}
 .form-fields div{
   width:35%;
   text-align: center;
@@ -440,12 +522,33 @@ aside{
   height: 30px;
 }
 
+@media (max-width: 650px) { 
+  .form-fields input{
+    width: 170px;
+    height: 25px;
+  }
+}
+
+@media (max-width: 370px) { 
+  .form-fields input{
+    width: 130px;
+    height: 25px;
+  }
+}
 .form-fields input::placeholder{
   color: #0f0f0f;
   font-size: 20px;
   text-align:center;
 }
 
+@media (max-width: 650px) { 
+.form-fields input::placeholder{
+  color: #0f0f0f;
+  font-size: 16px;
+  text-align:center;
+}
+
+}
 select{
   background-color: transparent;
   border: 1px solid black;
@@ -455,16 +558,59 @@ select{
   text-align:center;
 }
 
+@media (max-width: 650px) { 
+  select{
+    width: 160px;
+    height: 25px;
+    font-size: 16px;
+  }
+  
+}
+
+@media (max-width: 370px) { 
+  select{
+    width: 130px;
+    height: 25px;
+    font-size: 16px;
+  }
+}
 .radio-input{
   font-size: 20px;
   width:20px;
   height: 20px;
 }
 
+
 .certif input{
   font-size: 20px;
   width:20px;
   height: 20px;
+}
+
+@media (max-width: 650px) { 
+  .certif input{
+    font-size: 15px;
+  }
+  
+}
+
+@media (max-width: 650px) { 
+  .certif label{
+    font-size: 15px;
+  }
+
+  .req{
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 370px) { 
+  .certif label{
+   margin-left: 5px;
+  }
+  .cerf div{
+    width: 20px;
+}
 }
 
 .aditional-comments input{
@@ -477,6 +623,16 @@ select{
  font-size: 20px;
 }
 
+@media (max-width: 650px) { 
+  .aditional-comments input{
+    width: 300px;
+    height: 80px;
+    text-align: center;
+    margin-top: 45px;
+    font-size: 20px;
+   }
+}
+
 .send-form{
   margin-top: 30px;
   display: flex;
@@ -484,6 +640,45 @@ select{
   justify-content: space-between;
 }
 
+@media (max-width: 650px) { 
+  .send-form{
+    margin-top: 30px;
+    display: flex;
+    width: 350px;
+    justify-content: space-between;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 330px) { 
+  .send-form{
+    margin-top: 30px;
+    display: flex;
+    width: 315px;
+    justify-content: space-between;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 330px) { 
+  .send-form{
+    margin-top: 30px;
+    display: flex;
+    width: 315px;
+    justify-content: space-between;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 370px) { 
+    .send-form{
+    margin-top: 30px;
+    display: flex;
+    width: 310px;
+    justify-content: space-between;
+    font-size: 13px;
+  }
+}
 .send-form button{
   width: 110px;
   height: 35px;
@@ -491,6 +686,22 @@ select{
   background-color: #008000;
   color: white;
   border-style: none;
+  cursor: pointer;
+}
+
+@media (max-width: 650px) { 
+  .send-form button{
+    width: 80px;
+    height: 35px;
+    border-radius: 50px;
+    background-color: #008000;
+    color: white;
+    border-style: none;
+  }  
+
+  .terms{
+    text-align: justify;
+  }
 }
 
 .terms-form{
@@ -498,3 +709,77 @@ select{
   display: flex;
   align-items: center;
 }
+
+@media (max-width: 650px) { 
+  .terms-form{
+  width: 260px;
+  display: flex;
+  align-items: center;
+}
+
+}
+
+.admin-portal-link{
+  margin-top: 20px;
+  width: 320px;
+  height: 40px;
+}
+
+.admin-portal{
+  display: flex;
+  align-items: center;
+  width: 320px;
+  height: 40px;
+}
+
+.admin-portal button{
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.admin-portal span{
+  color:black;
+}
+
+.admin-portal .admin-icon{
+  color: #008000;
+}
+
+.cuentaNum{
+  font-size: 18px;
+}
+
+/* --------Table------------- */
+
+body {
+  background-image: url('https://example.com/background-image.jpg');
+  background-size: cover;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 80%;
+  margin-bottom: 50px;
+  background-color: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+

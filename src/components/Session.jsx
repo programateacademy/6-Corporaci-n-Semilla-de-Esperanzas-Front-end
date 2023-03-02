@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-let url = "http://localhost:3030";
+import { Link } from "react-router-dom";
+let url = "http://localhost:3030";  
 
-export const Session = () => {
-    
+export const Session = () => { 
+
     const [data, setData] = useState({
         email: " ",
         password: ""
@@ -45,12 +46,11 @@ export const Session = () => {
                     <label>Mostrar Contraseña</label>
                 </div>
                 <div className='login-btn'>
-                    <button type='submit'>Ingresar</button>
+                   <Link to='/NewUser'><button type='submit'>Ingresar</button></Link>
                 </div>                
             </form>
-            
             <div className='img-login-admin'></div>
-        
+          
         </div>
    </div>
   )
