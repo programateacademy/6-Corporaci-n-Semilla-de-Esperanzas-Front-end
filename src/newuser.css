@@ -139,3 +139,9 @@
     margin-top: 25px;
     text-decoration: none;
 }
+
+.rol-slct{
+    width: 300px;
+    height: 25px; 
+    margin-bottom: 10px;
+}

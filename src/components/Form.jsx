@@ -1,12 +1,7 @@
-<<<<<<< HEAD
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { BsFillPersonFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
-=======
-import axios from 'axios';
-import React, { useState, useEffect } from 'react';
->>>>>>> 1cf3a09ba7897aa8b5a29b806346ad61eeb2828c
 
 let url = "http://localhost:3030";
 
@@ -24,6 +19,13 @@ export const Form = () => {
     certification: "",
     aditional: "",
   });
+
+
+    useEffect(() => {
+        if (money == 1) {
+        form.destination_don = "dinero" 
+        } 
+    }, [money]);
 
     const handleInput = (e)=>{
         let {name, value} = e.target;
@@ -127,6 +129,11 @@ export const Form = () => {
                         <button type='submit'> Enviar</button>
                     </div>
                 </div>
+                <Link to="/Session" className='admin-portal-link'><div className='admin-portal'>
+                        <button><BsFillPersonFill className='admin-icon'></BsFillPersonFill></button>
+                        <span>Si eres Administrador ingresa aquí</span>
+                    </div>
+                </Link>
             </form>
         </div>
     )

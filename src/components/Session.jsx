@@ -5,10 +5,12 @@ let url = "http://localhost:3030";
 
 export const Session = () => { 
 
+    const [showPass, setShowPass] = useState(false);
     const [data, setData] = useState({
         email: " ",
         password: ""
     });
+
 
     const handleInput = (e) =>{
         let {name, value} = e.target;
@@ -18,10 +20,12 @@ export const Session = () => {
 
     const login = async (e) =>{
         e.preventDefault();
-        
+        try {
             let res = await axios.post(url+"/user/login", data);
             console.log(res.data);
-        
+        } catch (error) {
+            console.log(error);
+        }        
     };
 
   return (
@@ -30,7 +34,7 @@ export const Session = () => {
         <div className='login-admin-cont'>
             
             <form onSubmit={login} className='form-login'>
-                <div><strong>Administrador</strong></div>                
+                <div><strong>Iniciar Sesión</strong></div>                
                 <div className='input'>
                     <label>Usuario</label>
                     <input name='email' type='email' className='pass-input'  onChange={handleInput} value={data.user} required/>
@@ -38,16 +42,21 @@ export const Session = () => {
 
                 <div className='input'>
                     <label>Contraseña</label>
-                    <input name='password' type="password"  className='pass-input'  onChange={handleInput} value={data.password} required/>
+                    <input name='password' type={showPass ? "text" : "password"} className='pass-input'  onChange={handleInput} value={data.password} required/>
                 </div>
 
                 <div>
-                    <input type="checkbox" id="" name="" value=""/>
+                    <input type="checkbox" 
+                    onClick={() => setShowPass(!showPass)}
+                    />
                     <label>Mostrar Contraseña</label>
                 </div>
+                
                 <div className='login-btn'>
-                   <Link to='/NewUser'><button type='submit'>Ingresar</button></Link>
-                </div>                
+                <Link to='/PassRecover'><p>¿Olvidaste tu Contraseña?</p></Link>
+                   <button type='submit'>Ingresar</button>
+                </div>        
+                       
             </form>
             <div className='img-login-admin'></div>
           

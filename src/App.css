@@ -242,10 +242,19 @@
 
 .login-btn{
   margin-top: 30px;
-  width: 380px;
+  width: 340px;
   display: flex;
-  justify-content: right;
-  margin-right: 30px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.login-btn button{
+  cursor: pointer;
+}
+
+.login-btn p{
+  text-decoration: underline;
+  color: black;
 }
 
 @media (max-width: 660px) { 
@@ -752,16 +761,11 @@ select{
 
 /* --------Table------------- */
 
-body {
-  background-image: url('https://example.com/background-image.jpg');
-  background-size: cover;
-}
 
-.container {
+.container-tab{
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 50px;
 }
 
 table {
@@ -774,7 +778,7 @@ table {
 
 th,
 td {
-  text-align: left;
+  text-align: center;
   padding: 8px;
 }
 
@@ -783,3 +787,105 @@ th {
   font-weight: bold;
 }
 
+.tal-tit{
+  width: 80%;
+  margin-top: 120px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content:space-around;
+}
+
+.tal-tit h1{
+  width: 65%;
+  text-align: right;
+}
+.icos-cont-tab{
+  display: flex;
+  justify-content: right;
+  width:35%;
+}
+
+.cont-ico-tab{
+  width: 35px;
+  height: 35px;
+  margin-left: 30px;
+}
+
+.ico-pass{
+  width: 100%;
+  height: 100%;
+  color: black;
+}
+
+.ico-pass:hover{
+  color: #008000;
+}
+
+.ico-new{
+  width: 100%;
+  height: 100%;
+  color: black;
+}
+
+.ico-new:hover{
+  color: #008000;
+}
+/* --------------------passRecover------------ */
+.recover-form-cont{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.recover-form{
+  background-color: #aed4ae;
+  width: 600px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  border:2px solid #008000;
+}
+
+.recover-form h2{
+  text-align: center;
+  margin-bottom: 25px;
+  
+}
+
+@media (max-width:450px ) { 
+  .recover-form h2{
+    font-size: 20px;
+  }
+}
+
+.recover-form label{
+  margin-bottom: 30px;
+  font-size: 20px;
+  width: 80%;
+  text-align: justify;
+}
+
+.recover-form input{
+  border:2px solid #008000;
+  border-radius: 20PX;
+  height: 30px;
+  width: 60%;
+ text-align: center;
+}
+
+.recover-form button{
+  background-color:#008000;
+  border:2px solid #008000;
+  border-radius: 5px;
+  margin-top: 15px;
+  width: 150px;
+  height: 30px;
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+  font-size: 18px;
+}

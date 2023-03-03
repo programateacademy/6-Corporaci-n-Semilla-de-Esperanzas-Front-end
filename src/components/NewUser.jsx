@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../newuser.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { Header } from "./Header";
 
 let url = "http://localhost:3030";
 
@@ -31,8 +32,9 @@ export const NewUser = () => {
    };
 
     return (
+    <> <Header></Header>
     <div className="container-newuser">
-
+        
         <div className="container-form">
 
             <div className="container-form-newuser">
@@ -42,19 +44,19 @@ export const NewUser = () => {
                     <form onSubmit={register}>
                     
                         <label for="name">Nombre Completo</label>
-                        <input name="name" type="text" id="name" onChange={handleInput} value={user.name} placeholder="p. ej. Pedro López" />
+                        <input name="name" type="text" id="name" onChange={handleInput} value={user.name} />
 
                         <label for="email">Email</label>
-                        <input name="email" type="text" id="email" onChange={handleInput} value={user.email} placeholder="nombre@ejemplo.com" />
+                        <input name="email" type="text" id="email" onChange={handleInput} value={user.email}  />
 
                         <label for="password">Contraseña</label>
-                        <input name="password" type="text" id="password" onChange={handleInput} value={user.password} placeholder="*********" />
+                        <input name="password" type="password" id="password" onChange={handleInput} value={user.password} />
 
                         <label for="repeatpassword">Vuelve a escribir la contraseña</label>
-                        <input name="" type="text" id="repeatpassword" placeholder="*********" />
+                        <input name="" type="password" id="repeatpassword" />
 
                         <label>Rol</label>
-                        <select name="role" onChange={handleInput} value={user.role}>
+                        <select className="rol-slct" name="role" onChange={handleInput} value={user.role}>
                             <option>----</option>
                             <option>admin</option>
                             <option>user</option>
@@ -77,6 +79,8 @@ export const NewUser = () => {
 
 
     </div>
+    </>
+    
   )
 };
 

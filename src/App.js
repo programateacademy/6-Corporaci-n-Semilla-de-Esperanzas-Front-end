@@ -9,6 +9,7 @@ import { Session } from './components/Session';
 import {PopUp} from './components/PopUp';
 import Agradecimiento from './components/Agradecimiento';
 import TableData from './components/TableData';
+import { PassRecover } from './components/PassRecover';
 
 
 
@@ -22,6 +23,8 @@ function App() {
         <Route path='/Session' element={<><Header/> <div className='content'><div className='central-body'><Session/></div></div></>}/>
         <Route path='/NewUser' element={<NewUser/>}/>
         <Route path='/Agradecimiento' element={<Agradecimiento/>}/>
+        <Route path='/PassRecover' element={<PassRecover/>}/>
+        <Route path='/TableData' element={<TableData/>}/>
       </Routes>
     
     </div>
