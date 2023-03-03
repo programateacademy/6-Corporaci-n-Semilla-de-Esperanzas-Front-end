@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { BsFillTrashFill } from "react-icons/bs";
+import { AiFillEdit } from "react-icons/ai";
 import { async } from "q";
 
 let url = "http://localhost:3030";
@@ -58,7 +60,7 @@ function TableData() {
       const updatename = listForms[updateFormIndex].name = form.name;
       const updatemail = listForms[updateFormIndex].email = form.email;
       const updatephone = listForms[updateFormIndex].phone = form.phone;
-      const updatedest = listForm[updateFormIndex].destination = form.destination;
+      const updatedest = listForms[updateFormIndex].destination = form.destination;
       const updatecert = listForms[updateFormIndex].certification = form.certification;
       const updatead = listForms[updateFormIndex].aditional = form.aditional;
       const updastate= listForms[updateFormIndex].state = form.state;
