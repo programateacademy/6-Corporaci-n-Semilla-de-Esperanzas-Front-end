@@ -95,6 +95,7 @@ function TableData() {
           <option>Aprobado</option>
           <option>Rechazado</option>
         </select>
+        
         <button>Editar</button>
       </form>
     
