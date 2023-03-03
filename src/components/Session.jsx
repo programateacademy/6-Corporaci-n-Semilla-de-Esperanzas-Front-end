@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Navigate } from 'react-router';
 let url = "http://localhost:3030";
 
 export const Session = () => {
-    let a = "";
-
+    
+    const [redict, setRedict] = useState(false);
     const [data, setData] = useState({
         email: " ",
         password: ""
@@ -18,16 +19,19 @@ export const Session = () => {
 
     const login = async (e) =>{
         e.preventDefault();
-        
+        try {
             let res = await axios.post(url+"/user/login", data);
-            console.log(res.data);
+            console.log(res.data);            
+            setRedict(true);      
 
-            if(res.data === "Contraseña invalida" ||"Usuario no encontrado"){
-
-                console.log("Daniela es medio mocha");
-            }else{
-                console.log("No sirve")
-            }        
+        } catch (error) {
+            alert(error);
+        }
+        
+        if(redict){
+            alert("Bienvenido");
+            return <Navigate to={"/"}/>
+        }
     };
 
   return (
@@ -51,7 +55,7 @@ export const Session = () => {
                     <input type="checkbox" id="" name="" value=""/>
                     <label>Mostrar Contraseña</label>
                 </div>
-                <p>{a}</p>
+
                 <div className='login-btn'>
                     <button type='submit'>Ingresar</button>
                 </div>                

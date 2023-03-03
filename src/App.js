@@ -1,4 +1,5 @@
 
+import axios from 'axios';
 import './App.css';
 import { Aside } from './components/Aside';
 import { Footer } from './components/Footer';
@@ -8,6 +9,8 @@ import {NewUser} from './components/NewUser';
 import { Session } from './components/Session';
 import TableData from './components/TableData';
 
+//axios.defaults.withCredentials = true;
+
 
 function App() {
   return (
@@ -16,10 +19,10 @@ function App() {
       <div className='content'>
         {/*<div className='lateral'><Aside/></div>
         <div className='central-body'></div>
-       <Form></Form><Session/>
+       <Form></Form><TableData/>
        <NewUser/>
         */}
-         <TableData/>
+         <Session/>
       </div>
       <Footer/>
     </div>
