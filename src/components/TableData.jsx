@@ -61,14 +61,14 @@ function TableData() {
       const res = await axios.put(url + `/forms/modify/${isUpd}`, form);
       console.log(res.data);
       const updateFormIndex = listForms.findIndex(form => form._id === isUpd);
-      const updateType = listForms[updateFormIndex].type = form.type;
-      const updatenit = listForms[updateFormIndex].nit_cedula = form.nit_cedula;
-      const updatename = listForms[updateFormIndex].name = form.name;
-      const updatemail = listForms[updateFormIndex].email = form.email;
-      const updatephone = listForms[updateFormIndex].phone = form.phone;
-      const updatedest = listForms[updateFormIndex].destination = form.destination;
-      const updatecert = listForms[updateFormIndex].certification = form.certification;
-      const updatead = listForms[updateFormIndex].aditional = form.aditional;
+      // const updateType = listForms[updateFormIndex].type = form.type;
+      // const updatenit = listForms[updateFormIndex].nit_cedula = form.nit_cedula;
+      // const updatename = listForms[updateFormIndex].name = form.name;
+      // const updatemail = listForms[updateFormIndex].email = form.email;
+      // const updatephone = listForms[updateFormIndex].phone = form.phone;
+      // const updatedest = listForms[updateFormIndex].destination = form.destination;
+      // const updatecert = listForms[updateFormIndex].certification = form.certification;
+      // const updatead = listForms[updateFormIndex].aditional = form.aditional;
       const updastate = listForms[updateFormIndex].state = form.state;
       setIsUpdating('');
     } catch (error) {
@@ -77,20 +77,27 @@ function TableData() {
   }
 
   const renderUpdateForm = () => (
-    <div>
-      <form onSubmit={updateForm}>
-        <input type="text" name="type" onChange={handleInput} value={form.type} />
-        <input type="text" name="nit_cedula" onChange={handleInput} value={form.nit_cedula} />
-        <input type="text" name="name" onChange={handleInput} value={form.name} />
+    <div className="form-edit-table">
+         
+        <form onSubmit={updateForm}>
+        
+       {/* <input type="text" name="type" onChange={handleInput} value={form.type}></input>
+       <input type="text" name="nit_cedula" onChange={handleInput} value={form.nit_cedula} />
+       <input type="text" name="name" onChange={handleInput} value={form.name} />
         <input type="text" name="email" onChange={handleInput} value={form.email} />
-        <input type="text" name="phone" onChange={handleInput} value={form.phone} />
+       <input type="text" name="phone" onChange={handleInput} value={form.phone} />
         <input type="text" name="destination" onChange={handleInput} value={form.destination} />
         <input type="text" name="certification" onChange={handleInput} value={form.certification} />
-        <input type="text" name="aditional" onChange={handleInput} value={form.aditional} />
-        <input type="text" name="state" onChange={handleInput} value={form.state} />
-
+        <input type="text" name="aditional" onChange={handleInput} value={form.aditional} /> */}
+      
+        <select type="text" name="state" onChange={handleInput} value={form.state} placeholder='Estado Donación'>
+          <option>Verificando</option>
+          <option>Aprobado</option>
+          <option>Rechazado</option>
+        </select>
         <button>Editar</button>
       </form>
+    
     </div>
   );
 
@@ -110,8 +117,7 @@ function TableData() {
       <table>
         <thead>
           <tr>
-            {/*<th>#id</th>*/}
-            <th>Tipo de persona</th>
+            <th>Tipo de persona </th>
             <th>C.C o NIT</th>
             <th>Nombre</th>
             <th>Email</th>
@@ -132,7 +138,6 @@ function TableData() {
               isUpd === form._id
                 ? renderUpdateForm() :                    
             <tr>
-              {/*<td>{form.id}</td>*/}
               <td>{form.type}</td>
               <td>{form.nit_cedula}</td>
               <td>{form.name}</td>
@@ -143,19 +148,11 @@ function TableData() {
               <td>{form.aditional}</td>
               <td>{form.createdAt}</td>
               <td>{form.state}</td>              
-              <td onClick={() => { setIsUpdating(form._id) }}><AiFillEdit /></td>
-              <td onClick={() => { deleteForm(form._id) }}><BsFillTrashFill /></td>              
-              <td>
-                {/*<select
-                  value={donation.estado}
-                  onChange={(e) => handleStatusChange(donation.id, e.target.value)}>
-                  
-                  <option value="en proceso">En proceso</option>
-                  <option value="aprobada">Aprobada</option>
-                  <option value="rechazada">Rechazada</option>
-                </select>*/}
-              </td>
+              <th scope="row" onClick={() => { setIsUpdating(form._id) }}><AiFillEdit /></th>
+              <th scope="row" onClick={() => { deleteForm(form._id) }}><BsFillTrashFill /></th>              
+       
             </tr>
+
             }</tbody>
   
           ))
