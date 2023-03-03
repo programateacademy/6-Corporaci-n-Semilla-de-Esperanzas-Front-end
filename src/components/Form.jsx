@@ -2,11 +2,16 @@ import axios from 'axios';
 import React, {useState} from 'react';
 import {BsFillPersonFill} from "react-icons/bs";
 import { Link } from "react-router-dom";
+import "../PopUpDonation.css";
 
 let url = "http://localhost:3030";
 
 
+
+
 export const Form = () => {
+
+    const [showPopup, setShowPopup] = useState(false);
 
     const [type, setType] = useState('');
     const [nit_cedula, setNitCed] = useState('');
@@ -17,66 +22,31 @@ export const Form = () => {
     const [certification, setCertification] = useState('');
     const [aditional, setAditional] = useState('');
     const [persona, setPersona] = useState(false);
+    const [money, setMoney] = useState(false);
+
+    console.log(money);
     
     const handleNatural = () => {
         setPersona(true);
+        console.log("handleNatu" ,persona);
     }
     const handleJuridica = () => {
-        setPersona(false);        
+        setPersona(false); 
+        console.log("handleJuri" ,persona);       
     }    
 
     //Agregar usuario
-
-    const addDonation = async (e) => {
+    const addDonation = async (e)=>{
         e.preventDefault();
         try {
-          // Definir los datos del formulario
-          const formData = new FormData();
-          formData.append('type', type);
-          formData.append('nit_cedula', nit_cedula);
-          formData.append('name', names);
-          formData.append('email', email);
-          formData.append('phone', phone);
-          formData.append('destination_don', destination);
-          formData.append('certification', certification);
-          formData.append('aditional', aditional);
-      
-          // Enviar formulario al servidor de correo
-          const formUrl = 'https://formspree.io/f/mlekndbd';
-          const formWindow = window.open(formUrl, '_blank');
-          if (formWindow) {
-            const formElement = formWindow.document.createElement('form');
-            formElement.method = 'POST';
-            formElement.action = formUrl;
-            formElement.enctype = 'multipart/form-data';
-            for (const [key, value] of formData.entries()) {
-              const inputElement = formWindow.document.createElement('input');
-              inputElement.type = 'hidden';
-              inputElement.name = key;
-              inputElement.value = value;
-              formElement.appendChild(inputElement);
-            }
-            formWindow.document.body.appendChild(formElement);
-            formElement.submit();
-            console.log("formulario enviado por correo");
-          } else {
-            console.log('No se pudo abrir la ventana del formulario');
-          }
+            const res = await axios.post(url+'/forms/new', {type: type, nit_cedula: nit_cedula, name: names, email: email, phone: phone, destination_don: destination, certification: certification, aditional: aditional});
+            console.log(res);
+            console.log("formulario agregado")
+            setShowPopup(true);
         } catch (error) {
-          console.log(error);
+            console.log(error);
         }
-      };
-
-    //const addDonation = async (e)=>{
-       // e.preventDefault();
-       // try {
-         //   const res = await axios.post(url+'/forms/new', {type: type, nit_cedula: nit_cedula, name: names, email: email, phone: phone, destination_don: destination, certification: certification, aditional: aditional});
-           // console.log(res);
-            //console.log("formulario agregado")
-        //} catch (error) {
-          //  console.log(error);
-        //}
-    //};
+    };
 
     
 
@@ -87,14 +57,14 @@ export const Form = () => {
 
 
             <h1>¡Haz tu donación a Semillas de Esperanza hoy!</h1>
-            <h2>Tipo de persona</h2>
+            <h2><strong>Tipo de persona</strong></h2>
             <div className='person-type'>
                 <div>
-                    <input className='radio-input ' type="radio" id="html" name="person" onChange={e=>{setType(e.target.value)}} value={"Natural"} checked={type === "Natural"} onClick={handleNatural}></input> 
+                    <input className='radio-input' type="radio" id="html" name="person" onChange={e=>{setType(e.target.value)}} value={"Natural"} checked={type === "Natural"} onClick={handleNatural}></input> 
                     <label>Natural</label>
                 </div>
                 <div>
-                    <input className='radio-input' type="radio" id="html" name="person_" onChange={e=>{setType(e.target.value)}} value={"Jurídica"} checked={type === "Jurídica"} onClick={handleJuridica} ></input> 
+                    <input className='radio-input' type="radio" id="html" name="person" onChange={e=>{setType(e.target.value)}} value={"Jurídica"} checked={type === "Jurídica"} onClick={handleJuridica} ></input> 
                     <label>Jurídica</label>
                 </div>
             </div>
@@ -109,19 +79,29 @@ export const Form = () => {
 
                 <div><input type='text' name='email' placeholder='Email' onChange={e=>{setEmail(e.target.value)}} value={email}></input></div>
                 <div><input type='text' name='phone' placeholder='Celular' onChange={e=>{setPhone(e.target.value)}} value={phone}></input></div>
-                <div>Tipo de donación</div>
+                <div className='req'>Tipo de donación</div>
                 <div>
+                    <select onChange={(e) => setMoney(e.target.value)}>
+
+                        <option value="2">Bienes</option>
+                        <option value ="1">Dinero</option>
+                        
+                    </select>
+                </div>
+                {money == 1? 
+                (<><div className='req'><strong>Cuenta Ahorros</strong></div>
+                <div className='cuentaNum'><strong> ---- Bancolombia ----</strong> 008 - 017365 -05</div></>):
+                    (<><div className='req'>Destino de la donación</div>
                     <select onChange={e=>{setDestination(e.target.value)}} value={destination}>
                         <option>Seleccione</option>
-                        <option>Dinero</option>
-                        <option>Bienes</option>
-                        {/* <option>Infrasestructura</option>
+                        <option>Infrasestructura</option>
                         <option>Cocina</option>
                         <option>Comedor</option>
                         <option>Huerta</option>
-                        <option>Otro</option> */}
+                        <option>Otro</option>
                     </select>
-                </div>
+                    </>)}
+                
                 <div className='req'>Requiere Certificado</div>
                 <div className='certif'>
                      <div>
@@ -145,7 +125,7 @@ export const Form = () => {
                     <label className='terms'>He leído y acepto el aviso de privacidad y política de protección de datos personales.</label>
                 </div>
                 <div>
-                    <button type='submit'>Enviar</button>
+                    <button onClick={setShowPopup} type='submit'>Enviar</button>
                 </div>
             </div>
             <Link to= "/Session" className='admin-portal-link'><div className='admin-portal'>
@@ -155,5 +135,22 @@ export const Form = () => {
             </Link>
         </form>
     </div>
+
+    <div className="popup" style={{display: showPopup ? 'block' : 'none'}}>
+     
+     <div className="popup-content">
+     <div className="continer-logo-slogan">
+    <img className="img-logo" src={require("../images/LogoFundacionSemilla 2.png")} alt="logo"/>
+    <span>Una propuesta para tiempos mejores</span>
+</div>
+
+<div className="description-gratitude">
+    <p>¡Gracias por el interés en esta donación! Con su aporte continúa brotando esta semilla de vida en la comuna 3 de Medellín.</p>
+    <p>¡Pronto estaremos en contacto contigo!</p>
+</div>
+
+         <button onClick={() => setShowPopup(false)}>Cerrar</button>
+     </div>
+ </div>
     </div>)
     }
