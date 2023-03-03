@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { BsFillTrashFill } from "react-icons/bs";
 import { AiFillEdit } from "react-icons/ai";
-import { async } from "q";
 
 let url = "http://localhost:3030";
 
@@ -43,16 +42,18 @@ function TableData() {
   const deleteForm = async (id) => {
     try {
       const res = await axios.delete(url + `/forms/delete/${id}`);
+      const newListForms = listForms.filter(form => form._id !== id);
+      setListForms(newListForms);
       console.log('form eliminado')
     } catch (error) {
       console.log(error);
     }
   }
 
-  const updateForm = async (e) =>{
+  const updateForm = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.put(url+`/forms/modify/${isUpd}`, form);
+      const res = await axios.put(url + `/forms/modify/${isUpd}`, form);
       console.log(res.data);
       const updateFormIndex = listForms.findIndex(form => form._id === isUpd);
       const updateType = listForms[updateFormIndex].type = form.type;
@@ -63,7 +64,8 @@ function TableData() {
       const updatedest = listForms[updateFormIndex].destination = form.destination;
       const updatecert = listForms[updateFormIndex].certification = form.certification;
       const updatead = listForms[updateFormIndex].aditional = form.aditional;
-      const updastate= listForms[updateFormIndex].state = form.state;
+      const updastate = listForms[updateFormIndex].state = form.state;
+      setIsUpdating('');
     } catch (error) {
       console.log(error);
     }
@@ -72,15 +74,15 @@ function TableData() {
   const renderUpdateForm = () => (
     <div>
       <form onSubmit={updateForm}>
-        <input type="text" name="type" onChange={handleInput} value={form.type}/>
-        <input type="text" name="nit_cedula" onChange={handleInput} value={form.nit_cedula}/>
-        <input type="text" name="name" onChange={handleInput} value={form.name}/>
-        <input type="text" name="email" onChange={handleInput} value={form.email}/>
-        <input type="text" name="phone" onChange={handleInput} value={form.phone}/>
-        <input type="text" name="destination" onChange={handleInput} value={form.destination}/>
-        <input type="text" name="certification" onChange={handleInput} value={form.certification}/>
-        <input type="text" name="aditional" onChange={handleInput} value={form.aditional}/>
-        <input type="text" name="state" onChange={handleInput} value={form.state}/>
+        <input type="text" name="type" onChange={handleInput} value={form.type} />
+        <input type="text" name="nit_cedula" onChange={handleInput} value={form.nit_cedula} />
+        <input type="text" name="name" onChange={handleInput} value={form.name} />
+        <input type="text" name="email" onChange={handleInput} value={form.email} />
+        <input type="text" name="phone" onChange={handleInput} value={form.phone} />
+        <input type="text" name="destination" onChange={handleInput} value={form.destination} />
+        <input type="text" name="certification" onChange={handleInput} value={form.certification} />
+        <input type="text" name="aditional" onChange={handleInput} value={form.aditional} />
+        <input type="text" name="state" onChange={handleInput} value={form.state} />
 
         <button>Editar</button>
       </form>
@@ -110,23 +112,24 @@ function TableData() {
         {
           listForms.map(form => (
             <tbody>{
-
-              <tr>
-                {/*<td>{form.id}</td>*/}
-                <td>{form.type}</td>
-                <td>{form.nit_cedula}</td>
-                <td>{form.name}</td>
-                <td>{form.email}</td>
-                <td>{form.phone}</td>
-                <td>{form.destination_don}</td>
-                <td>{form.certification}</td>
-                <td>{form.aditional}</td>
-                <td>{form.createdAt}</td>
-                <td>{form.state}</td>
-                <td><AiFillEdit /></td>              
-              <td onClick={() => {deleteForm(form._id)}}><BsFillTrashFill/></td>
-                <td>
-                  {/*<select
+              isUpd === form._id
+                ? renderUpdateForm() :
+                <tr>
+                  {/*<td>{form.id}</td>*/}
+                  <td>{form.type}</td>
+                  <td>{form.nit_cedula}</td>
+                  <td>{form.name}</td>
+                  <td>{form.email}</td>
+                  <td>{form.phone}</td>
+                  <td>{form.destination_don}</td>
+                  <td>{form.certification}</td>
+                  <td>{form.aditional}</td>
+                  <td>{form.createdAt}</td>
+                  <td>{form.state}</td>
+                  <td onClick={() => { setIsUpdating(form._id) }}><AiFillEdit /></td>
+                  <td onClick={() => { deleteForm(form._id) }}><BsFillTrashFill /></td>
+                  <td>
+                    {/*<select
                   value={donation.estado}
                   onChange={(e) => handleStatusChange(donation.id, e.target.value)}>
                   
@@ -134,8 +137,8 @@ function TableData() {
                   <option value="aprobada">Aprobada</option>
                   <option value="rechazada">Rechazada</option>
                 </select>*/}
-                </td>
-              </tr>
+                  </td>
+                </tr>
             }</tbody>
 
           ))
