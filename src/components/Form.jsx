@@ -6,50 +6,52 @@ import { Link } from "react-router-dom";
 let url = "http://localhost:3030";
 
 export const Form = () => {
-  /*const [type, setType] = useState('');*/
-  const [persona, setPersona] = useState(false);
-  const [money, setMoney] = useState(2);
-  const [form, setForm] = useState({
-    type: "",
-    nit_cedula: "",
-    name: "",
-    email: "",
-    phone: "",
-    destination_don: "",
-    certification: "",
-    aditional: "",
-  });
+    /*const [type, setType] = useState('');*/
+    const [showPopup, setShowPopup] = useState(false);
+    const [persona, setPersona] = useState(false);
+    const [money, setMoney] = useState(2);
+    const [form, setForm] = useState({
+        type: "",
+        nit_cedula: "",
+        name: "",
+        email: "",
+        phone: "",
+        destination_don: "",
+        certification: "",
+        aditional: "",
+    });
 
 
     useEffect(() => {
         if (money == 1) {
-        form.destination_don = "dinero" 
-        } 
+            form.destination_don = "dinero"
+        }
     }, [money]);
 
-    const handleInput = (e)=>{
-        let {name, value} = e.target;
-        let newForm = {...form, [name]: value};
+    const handleInput = (e) => {
+        let { name, value } = e.target;
+        let newForm = { ...form, [name]: value };
         setForm(newForm);
     };
 
-    
+
     const handleNatural = () => {
         setPersona(true);
-        console.log("handleNatu" ,persona);
+        console.log("handleNatu", persona);
     }
     const handleJuridica = () => {
-        setPersona(false); 
-        console.log("handleJuri" ,persona);       
-    }    
+        setPersona(false);
+        console.log("handleJuri", persona);
+    }
 
     //Agregar Formulario
-    const addDonation = async (e)=>{
+    const addDonation = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post(url+'/forms/new',form);
+            const res = await axios.post(url + '/forms/new', form);
             console.log(res);
-            console.log("formulario agregado")
+            console.log("formulario agregado");
+            setShowPopup(true);
         } catch (error) {
             console.log(error);
         }
@@ -126,15 +128,31 @@ export const Form = () => {
                         <label>He leído y acepto el aviso de privaciodad y política de protección de datos personales.</label>
                     </div>
                     <div>
-                        <button type='submit'> Enviar</button>
+                        <button onClick={setShowPopup} type='submit'> Enviar</button>
                     </div>
                 </div>
                 <Link to="/Session" className='admin-portal-link'><div className='admin-portal'>
-                        <button><BsFillPersonFill className='admin-icon'></BsFillPersonFill></button>
-                        <span>Si eres Administrador ingresa aquí</span>
-                    </div>
+                    <button><BsFillPersonFill className='admin-icon'></BsFillPersonFill></button>
+                    <span>Si eres Administrador ingresa aquí</span>
+                </div>
                 </Link>
             </form>
+            <div className="popup" style={{ display: showPopup ? 'block' : 'none' }}>
+                <div className="popup-content">
+                    <div className="continer-logo-slogan">
+                        <img className="img-logo" src={require("../images/LogoFundacionSemilla 2.png")} alt="logo" />
+                        <span>Una propuesta para tiempos mejores</span>
+                    </div>
+
+                    <div className="description-gratitude">
+                        <p>¡Gracias por el interés en esta donación! Con su aporte continúa brotando esta semilla de vida en la comuna 3 de Medellín.</p>
+                        <p>¡Pronto estaremos en contacto contigo!</p>
+                    </div>
+
+                    <button onClick={() => setShowPopup(false)}>Cerrar</button>
+                </div>
+            </div>
+
         </div>
     )
 }
