@@ -121,6 +121,8 @@ function TableData() {
                 <td>{form.aditional}</td>
                 <td>{form.createdAt}</td>
                 <td>{form.state}</td>
+                <td><AiFillEdit /></td>              
+              <td onClick={() => {deleteForm(form._id)}}><BsFillTrashFill/></td>
                 <td>
                   {/*<select
                   value={donation.estado}
