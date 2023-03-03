@@ -3,7 +3,8 @@ import axios from 'axios';
 let url = "http://localhost:3030";
 
 export const Session = () => {
-    
+    let a = "";
+
     const [data, setData] = useState({
         email: " ",
         password: ""
@@ -20,7 +21,13 @@ export const Session = () => {
         
             let res = await axios.post(url+"/user/login", data);
             console.log(res.data);
-        
+
+            if(res.data === "Contraseña invalida" ||"Usuario no encontrado"){
+
+                console.log("Daniela es medio mocha");
+            }else{
+                console.log("No sirve")
+            }        
     };
 
   return (
@@ -44,6 +51,7 @@ export const Session = () => {
                     <input type="checkbox" id="" name="" value=""/>
                     <label>Mostrar Contraseña</label>
                 </div>
+                <p>{a}</p>
                 <div className='login-btn'>
                     <button type='submit'>Ingresar</button>
                 </div>                
