@@ -6,6 +6,8 @@ let url = "http://localhost:3030";
 
 function TableData() {
   const [listForms, setListForms] = useState([]);
+  const [isUpd, setIsUpdating] = useState('');
+
   const [form, setForm] = useState({
     type: "",
     nit_cedula: "",
@@ -48,7 +50,18 @@ function TableData() {
   const updateForm = async (e) =>{
     e.preventDefault();
     try {
-      const res = await axios.put(url+`/forms/modify`)
+      const res = await axios.put(url+`/forms/modify/${isUpd}`, form);
+      console.log(res.data);
+      const updateFormIndex = listForms.findIndex(form => form._id === isUpd);
+      const updateType = listForms[updateFormIndex].type = form.type;
+      const updatenit = listForms[updateFormIndex].nit_cedula = form.nit_cedula;
+      const updatename = listForms[updateFormIndex].name = form.name;
+      const updatemail = listForms[updateFormIndex].email = form.email;
+      const updatephone = listForms[updateFormIndex].phone = form.phone;
+      const updatedest = listForm[updateFormIndex].destination = form.destination;
+      const updatecert = listForms[updateFormIndex].certification = form.certification;
+      const updatead = listForms[updateFormIndex].aditional = form.aditional;
+      const updastate= listForms[updateFormIndex].state = form.state;
     } catch (error) {
       console.log(error);
     }
@@ -56,7 +69,7 @@ function TableData() {
 
   const renderUpdateForm = () => (
     <div>
-      <form onSubmit={as}>
+      <form onSubmit={updateForm}>
         <input type="text" name="type" onChange={handleInput} value={form.type}/>
         <input type="text" name="nit_cedula" onChange={handleInput} value={form.nit_cedula}/>
         <input type="text" name="name" onChange={handleInput} value={form.name}/>
