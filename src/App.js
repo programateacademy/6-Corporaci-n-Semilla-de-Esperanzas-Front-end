@@ -8,15 +8,18 @@ import { Header } from './components/Header';
 import { Session } from './components/Session';
 import {PopUp} from './components/PopUp';
 import Agradecimiento from './components/Agradecimiento';
+import {NewPassword} from './components/NewPassword';
 
 
 function App() {
   return (
     <div className="App">
 
-      <Agradecimiento/>
+      <NewPassword/>
 
-      {/* <PopUp/> 
+      {/* <Agradecimiento/>
+
+      <PopUp/> 
       <NewUser/>
       <Header/> 
         <div className='content'>
