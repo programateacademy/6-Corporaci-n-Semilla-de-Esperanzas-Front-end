@@ -26,6 +26,7 @@ export const NewUser = () => {
         try {
             const res = await axios.post(url+"/user/sign", user);
             console.log(res);
+            
         } catch (error) {
             console.log(error);
         }

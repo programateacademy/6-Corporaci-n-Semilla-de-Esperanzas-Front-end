@@ -36,11 +36,7 @@ function TableData() {
   useEffect(() =>{
     const getForms = async () =>{
       try {
-        const res = await axios.get(url+ '/forms/table/',{
-          headers:{
-            'Authorization': token
-          }
-        });
+        const res = await axios.get(url+ '/forms/table/',{headers:{'Authorization': token }});
         
         setListForms(res.data);
       } catch (error) {
@@ -77,8 +73,7 @@ function TableData() {
   const renderUpdateForm = () => (
     <div className="form-edit-table">
          
-        <form onSubmit={updateForm}>
-            
+        <form onSubmit={updateForm}>            
         <select type="text" name="state" onChange={handleInput} value={form.state} placeholder='Estado Donación'>
           <option>---</option>
           <option>Verificando</option>
