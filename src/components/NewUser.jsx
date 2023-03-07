@@ -15,74 +15,64 @@ export const NewUser = () => {
         role: ""
     });
 
-    const handleInput =(e)=>{
-        let {name, value} = e.target;
-        let userData = {...user, [name]: value};
+    const handleInput = (e) => {
+        let { name, value } = e.target;
+        let userData = { ...user, [name]: value };
         setUser(userData);
     };
 
-   const register = async(e)=>{
+    const register = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post(url+"/user/sign", user);
+            const res = await axios.post(url + "/user/sign", user);
             console.log(res);
-            
+
         } catch (error) {
             console.log(error);
         }
-   };
+    };
 
     return (
-    <> <Header></Header>
-    <div className="container-newuser">
-        
-        <div className="container-form">
+        <> <Header></Header>
+            <div className="container-newuser">
 
-            <div className="container-form-newuser">
+                <div className="container-form">
 
-                <span>Registro De Nuevo Usuario</span>
-                
-                    <form onSubmit={register}>
-                    
-                        <label for="name">Nombre Completo</label>
-                        <input name="name" type="text" id="name" onChange={handleInput} value={user.name} />
+                    <div className="container-form-newuser">
 
-                        <label for="email">Email</label>
-                        <input name="email" type="text" id="email" onChange={handleInput} value={user.email}  />
+                        <span>Registro De Nuevo Usuario</span>
 
-                        <label for="password">Contraseña</label>
-                        <input name="password" type="password" id="password" onChange={handleInput} value={user.password} />
+                        <form onSubmit={register}>
 
-                        <label for="repeatpassword">Vuelve a escribir la contraseña</label>
-                        <input name="" type="password" id="repeatpassword" />
+                            <label for="name">Nombre Completo</label>
+                            <input name="name" type="text" id="name" onChange={handleInput} value={user.name} required />
 
-                        <label>Rol</label>
-                        <select className="rol-slct" name="role" onChange={handleInput} value={user.role}>
-                            <option>----</option>
-                            <option>admin</option>
-                            <option>user</option>
-                        </select>
-                        
-                        <button className="button-newuser">Enviar</button>
-                        {/*<Link className="button-newuser-link" to='/'><button className="button-newuser" type="submit">Crear Usuario</button></Link>*/}
+                            <label for="email">Email</label>
+                            <input name="email" type="email" id="email" onChange={handleInput} value={user.email} required />
 
-                    </form>
+                            <label for="password">Contraseña</label>
+                            <input name="password" type="password" id="password" onChange={handleInput} value={user.password} required />
 
+                            <label for="repeatpassword">Vuelve a escribir la contraseña</label>
+                            <input name="" type="password" id="repeatpassword" required />
+
+                            <label>Rol</label>
+                            <select className="rol-slct" name="role" onChange={handleInput} value={user.role} required>
+                                <option>----</option>
+                                <option>admin</option>
+                                <option>user</option>
+                            </select>
+
+                            <button className="button-newuser">Enviar</button>
+                            {/*<Link className="button-newuser-link" to='/'><button className="button-newuser" type="submit">Crear Usuario</button></Link>*/}
+                        </form>
+                    </div>
+                    <div className="img-newuser">
+                    </div>
+                </div>
             </div>
-
-
-            <div className="img-newuser">
-                
-            </div>
-        
-        </div>
-
-
-
-    </div>
-    </>
-    
-  )
+        </>
+    )
 };
 
 export default NewUser;
