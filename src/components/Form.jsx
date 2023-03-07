@@ -21,7 +21,6 @@ export const Form = () => {
         aditional: "",
     });
 
-
     useEffect(() => {
         if (money == 1) {
             form.destination_don = "dinero"
@@ -31,17 +30,16 @@ export const Form = () => {
     const handleInput = (e) => {
         let { name, value } = e.target;
         let newForm = { ...form, [name]: value };
-        setForm(newForm);
-    };
+        setForm(newForm);    };
 
 
     const handleNatural = () => {
         setPersona(true);
-        console.log("handleNatu", persona);
+        //console.log("handleNatu", persona);
     }
     const handleJuridica = () => {
         setPersona(false);
-        console.log("handleJuri", persona);
+        //console.log("handleJuri", persona);
     }
 
     //Agregar Formulario
@@ -49,7 +47,7 @@ export const Form = () => {
         e.preventDefault();
         try {
             const res = await axios.post(url + '/forms/new', form);
-            console.log(res);
+            //console.log(res);
             console.log("formulario agregado");
             setShowPopup(true);
         } catch (error) {
@@ -131,10 +129,11 @@ export const Form = () => {
                         <button onClick={setShowPopup} type='submit'> Enviar</button>
                     </div>
                 </div>
-                <Link to="/Session" className='admin-portal-link'><div className='admin-portal'>
-                    <button><BsFillPersonFill className='admin-icon'></BsFillPersonFill></button>
-                    <span>Si eres Administrador ingresa aquí</span>
-                </div>
+                <Link to="/Session" className='admin-portal-link'>
+                    <div className='admin-portal'>
+                        <button><BsFillPersonFill className='admin-icon'></BsFillPersonFill></button>
+                        <span>Si eres Administrador ingresa aquí</span>
+                    </div>
                 </Link>
             </form>
             <div className="popup" style={{ display: showPopup ? 'block' : 'none' }}>
@@ -152,7 +151,6 @@ export const Form = () => {
                     <button onClick={() => setShowPopup(false)}>Cerrar</button>
                 </div>
             </div>
-
         </div>
     )
 }

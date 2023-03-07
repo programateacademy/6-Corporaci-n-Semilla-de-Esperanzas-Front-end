@@ -24,7 +24,7 @@ export const Session = () => {
             const res = await axios.post(url + "/user/login", data);
             console.log(res.data);
 
-            window.sessionStorage.setItem('token', res.data.token)
+            window.sessionStorage.setItem('token', res.data.token);
 
             if (res.data.message == "Bienvenido") {
                 alert(res.data.message);
