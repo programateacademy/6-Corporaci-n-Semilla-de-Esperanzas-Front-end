@@ -44,16 +44,16 @@ export const NewUser = () => {
 
                         <form onSubmit={register}>
 
-                            <label for="name">Nombre Completo</label>
+                            <label htmlFor="name">Nombre Completo</label>
                             <input name="name" type="text" id="name" onChange={handleInput} value={user.name} required />
 
-                            <label for="email">Email</label>
+                            <label htmlFor="email">Email</label>
                             <input name="email" type="email" id="email" onChange={handleInput} value={user.email} required />
 
-                            <label for="password">Contraseña</label>
+                            <label htmlFor="password">Contraseña</label>
                             <input name="password" type="password" id="password" onChange={handleInput} value={user.password} required />
 
-                            <label for="repeatpassword">Vuelve a escribir la contraseña</label>
+                            <label htmlFor="repeatpassword">Vuelve a escribir la contraseña</label>
                             <input name="" type="password" id="repeatpassword" required />
 
                             <label>Rol</label>
