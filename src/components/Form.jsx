@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 let url = "http://localhost:3030";
 
 export const Form = () => {
-    /*const [type, setType] = useState('');*/
+
     const [showPopup, setShowPopup] = useState(false);
     const [persona, setPersona] = useState(false);
     const [money, setMoney] = useState(2);
