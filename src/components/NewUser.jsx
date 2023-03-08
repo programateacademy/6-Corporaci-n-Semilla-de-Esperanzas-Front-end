@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../newuser.css";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { Header } from "./Header";
 
 let url = "http://localhost:3030";
@@ -25,10 +25,15 @@ export const NewUser = () => {
         e.preventDefault();
         try {
             const res = await axios.post(url + "/user/sign", user);
-            console.log(res);
+            if(res.data.message == "Usuario Registrado"){
+                alert(res.data.message);
+                setTimeout(function () { window.location.href = "http://localhost:3000/TableData"; }, 2000);
+            }else{
+                alert(res.data.message);
+            }
 
         } catch (error) {
-            console.log(error);
+            console.log(error);            
         }
     };
 
@@ -63,8 +68,7 @@ export const NewUser = () => {
                                 <option>user</option>
                             </select>
 
-                            <button className="button-newuser">Enviar</button>
-                            {/*<Link className="button-newuser-link" to='/'><button className="button-newuser" type="submit">Crear Usuario</button></Link>*/}
+                            <button className="button-newuser">Enviar</button>                            
                         </form>
                     </div>
                     <div className="img-newuser">
