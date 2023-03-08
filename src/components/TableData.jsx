@@ -6,6 +6,7 @@ import { Header } from "./Header";
 import { FaUserLock } from "react-icons/fa";
 import { FaUserPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { IoLogOut} from "react-icons/io5";
 
 
 let url = "http://localhost:3030";
@@ -75,7 +76,7 @@ function TableData() {
 
       <form onSubmit={updateForm}>
         <select type="text" name="state" onChange={handleInput} value={form.state} placeholder='Estado Donación'>
-          {/*<option>---</option>*/}
+          <option>----</option>
           <option>Verificando</option>
           <option>Aprobado</option>
           <option>Rechazado</option>
@@ -99,8 +100,8 @@ function TableData() {
           <h1>Resumen Donaciones</h1>
           <div className="icos-cont-tab">
             <div className="cont-ico-tab"><Link><FaUserLock className="ico-pass"></FaUserLock></Link></div>
-            <div className="cont-ico-tab"><FaUserPlus className="ico-new"></FaUserPlus></div>
-            <div className="cont-ico-tab"><Link to='/'><button onClick={logOut}>LogOut</button></Link></div>
+            <div className="cont-ico-tab"><Link  to = "/NewUser"><FaUserPlus className="ico-new"></FaUserPlus></Link></div>
+            <div className="cont-ico-tab"><Link to ='/'><IoLogOut className="ico-new" onClick={logOut}></IoLogOut></Link></div>
           </div>
         </div>
 
