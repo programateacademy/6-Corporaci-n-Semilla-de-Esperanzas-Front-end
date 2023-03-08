@@ -59,7 +59,7 @@ export const NewUser = () => {
                             <input name="password" type="password" id="password" onChange={handleInput} value={user.password} required />
 
                             <label htmlFor="repeatpassword">Vuelve a escribir la contraseña</label>
-                            <input name="" type="password" id="repeatpassword" required />
+                            <input name="repeatpassword" type="password" id="repeatpassword" required />
 
                             <label>Rol</label>
                             <select className="rol-slct" name="role" onChange={handleInput} value={user.role} required>
