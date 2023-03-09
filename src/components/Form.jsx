@@ -37,6 +37,7 @@ export const Form = () => {
         setPersona(true);
         //console.log("handleNatu", persona);
     }
+
     const handleJuridica = () => {
         setPersona(false);
         //console.log("handleJuri", persona);
@@ -50,10 +51,13 @@ export const Form = () => {
             //console.log(res);
             console.log("formulario agregado");
             setShowPopup(true);
+
         } catch (error) {
             console.log(error);
         }
     };
+
+    
 
     return (
         <div className='cont-form'>
@@ -148,7 +152,7 @@ export const Form = () => {
                         <p>¡Pronto estaremos en contacto contigo!</p>
                     </div>
 
-                    <button onClick={() => setShowPopup(false)}>Cerrar</button>
+                    <a href="http://localhost:3000/"><button>Cerrar</button></a>
                 </div>
             </div>
         </div>

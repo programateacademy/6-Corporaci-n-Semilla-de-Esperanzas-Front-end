@@ -40,6 +40,7 @@ export const Session = () => {
 
     };
 
+  
     return (
         <div className='admin-login'>
             <h2>Una propuesta para tiempos mejores</h2>
@@ -54,7 +55,7 @@ export const Session = () => {
 
                     <div className='input'>
                         <label>Contraseña</label>
-                        <input name='password' type={showPass ? "text" : "password"} className='pass-input' onChange={handleInput} value={data.password} required />
+                        <input name='password' type={showPass ? "text" : "password"} className='pass-input' onChange={handleInput} value={data.password}  required />
                     </div>
 
                     <div>
