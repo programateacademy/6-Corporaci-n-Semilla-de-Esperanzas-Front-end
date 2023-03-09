@@ -14,7 +14,8 @@ export const PassRecover = () => {
             const res = await axios.post(url + '/user/recovery', { email: email });
             
             if(res.data.message === "Correo enviado"){
-                alert(res.data.message+" Recibirás un correo en breves momentos");
+                alert(res.data.message+", recibirás un correo en breves momentos");
+                setTimeout(function () { window.location.href = "http://localhost:3000/Session"; }, 2000);
             }else{
                 alert(res.data.error);
             }
