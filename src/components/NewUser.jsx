@@ -37,6 +37,18 @@ export const NewUser = () => {
         }
     };
 
+    const verifyPass = () => {
+        let pass1= document.getElementsByName('password');
+        let pass2= document.getElementsByName('password2');
+        if (pass2.length > 7) {
+            if (pass1 === pass2) {
+                console.log('contraseñas coinciden')
+            }
+        }
+    };
+
+
+
     return (
         <> <Header></Header>
             <div className="container-newuser">
@@ -56,7 +68,7 @@ export const NewUser = () => {
                             <input name="email" type="email" id="email" onChange={handleInput} value={user.email} required />
 
                             <label htmlFor="password">Contraseña</label>
-                            <input name="password" type="password" id="password" onChange={handleInput} value={user.password} required />
+                            <input name="password" type="password" id="password" onChange={handleInput} value={user.password}  required />
 
                             <label htmlFor="repeatpassword">Vuelve a escribir la contraseña</label>
                             <input name="repeatpassword" type="password" id="repeatpassword" required />
@@ -68,7 +80,7 @@ export const NewUser = () => {
                                 <option>user</option>
                             </select>
 
-                            <button className="button-newuser">Enviar</button>                            
+                            <button className="button-newuser" onClick={verifyPass}>Enviar</button>                            
                         </form>
                     </div>
                     <div className="img-newuser">
