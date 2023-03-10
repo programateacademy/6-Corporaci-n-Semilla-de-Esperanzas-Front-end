@@ -98,8 +98,7 @@ function TableData() {
       <div className="container-tab">
         <div className="tal-tit">
           <h1>Resumen Donaciones</h1>
-          <div className="icos-cont-tab">
-            <div className="cont-ico-tab"><Link><FaUserLock className="ico-pass"></FaUserLock></Link></div>
+          <div className="icos-cont-tab">            
             <div className="cont-ico-tab"><Link  to = "/NewUser"><FaUserPlus className="ico-new"></FaUserPlus></Link></div>
             <div className="cont-ico-tab"><Link to ='/'><IoLogOut className="ico-new" onClick={logOut}></IoLogOut></Link></div>
           </div>
