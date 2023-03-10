@@ -5,6 +5,7 @@ import { Link} from "react-router-dom";
 import { Header } from "./Header";
 
 let url = "http://localhost:3030";
+let token = sessionStorage.getItem('token');
 
 export const NewUser = () => {
 
@@ -24,7 +25,7 @@ export const NewUser = () => {
     const register = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post(url + "/user/sign", user);
+            const res = await axios.post(url + "/user/sign",user,{ headers: { 'Authorization': token } } );
             if(res.data.message == "Usuario Registrado"){
                 alert(res.data.message);
                 setTimeout(function () { window.location.href = "http://localhost:3000/TableData"; }, 2000);
