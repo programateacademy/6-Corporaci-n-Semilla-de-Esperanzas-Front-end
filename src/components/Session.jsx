@@ -28,7 +28,7 @@ export const Session = () => {
 
             if (res.data.message == "Bienvenido") {
                 alert(res.data.message);
-                setTimeout(function () { window.location.href = "http://localhost:3000/TableData"; }, 2000);
+                setTimeout(function () { window.location.href = url+"/TableData"; }, 2000);
             } else {
                 alert(res.data.message)
             }
@@ -42,7 +42,7 @@ export const Session = () => {
   
     return (
         <div className='admin-login'>
-            <h2>Una propuesta para tiempos mejors</h2>
+            <h2>Una propuesta para tiempos mejores</h2>
             <div className='login-admin-cont'>
 
                 <form onSubmit={login} className='form-login'>
