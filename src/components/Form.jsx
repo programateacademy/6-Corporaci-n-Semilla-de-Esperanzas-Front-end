@@ -57,6 +57,10 @@ export const Form = () => {
         }
     };
 
+    const peticionPost = async()=>{
+        await axios.post('pos')
+    }
+
     
 
     return (

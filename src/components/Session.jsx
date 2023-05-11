@@ -28,7 +28,7 @@ export const Session = () => {
 
             if (res.data.message == "Bienvenido") {
                 alert(res.data.message);
-                setTimeout(function () { window.location.href = url+"/TableData"; }, 2000);
+                setTimeout(function () { window.location.href = "http://localhost:3000/TableData"; }, 2000);
             } else {
                 alert(res.data.message)
             }

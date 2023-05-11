@@ -49,7 +49,7 @@ function TableData() {
 
   const deleteForm = async (id) => {
     try {
-      const res = await axios.delete(url + `/forms/delete/${id}`);
+      const res = await axios.delete(url + `/forms/delete/${id}`, { headers: { 'Authorization': token } });
       const newListForms = listForms.filter(form => form._id !== id);
       setListForms(newListForms);
       console.log('form eliminado')
@@ -61,7 +61,7 @@ function TableData() {
   const updateForm = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.put(url + `/forms/modify/${isUpd}`, form);
+      const res = await axios.put(url + `/forms/modify/${isUpd}`,form);
       console.log(res.data);
       const updateFormIndex = listForms.findIndex(form => form._id === isUpd);
       const updastate = listForms[updateFormIndex].state = form.state;
