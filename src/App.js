@@ -12,7 +12,6 @@ import TableData from './components/TableData';
 import { PassRecover } from './components/PassRecover';
 
 
-
 function App() {
   return (
     <div className="App">

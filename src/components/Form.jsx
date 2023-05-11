@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 let url = "http://localhost:3030";
 
 export const Form = () => {
-    /*const [type, setType] = useState('');*/
+
     const [showPopup, setShowPopup] = useState(false);
     const [persona, setPersona] = useState(false);
     const [money, setMoney] = useState(2);
@@ -21,7 +21,6 @@ export const Form = () => {
         aditional: "",
     });
 
-
     useEffect(() => {
         if (money == 1) {
             form.destination_don = "dinero"
@@ -31,17 +30,17 @@ export const Form = () => {
     const handleInput = (e) => {
         let { name, value } = e.target;
         let newForm = { ...form, [name]: value };
-        setForm(newForm);
-    };
+        setForm(newForm);    };
 
 
     const handleNatural = () => {
         setPersona(true);
-        console.log("handleNatu", persona);
+        //console.log("handleNatu", persona);
     }
+
     const handleJuridica = () => {
         setPersona(false);
-        console.log("handleJuri", persona);
+        //console.log("handleJuri", persona);
     }
 
     //Agregar Formulario
@@ -49,13 +48,16 @@ export const Form = () => {
         e.preventDefault();
         try {
             const res = await axios.post(url + '/forms/new', form);
-            console.log(res);
+            //console.log(res);
             console.log("formulario agregado");
             setShowPopup(true);
+
         } catch (error) {
             console.log(error);
         }
     };
+
+    
 
     return (
         <div className='cont-form'>
@@ -131,10 +133,11 @@ export const Form = () => {
                         <button onClick={setShowPopup} type='submit'> Enviar</button>
                     </div>
                 </div>
-                <Link to="/Session" className='admin-portal-link'><div className='admin-portal'>
-                    <button><BsFillPersonFill className='admin-icon'></BsFillPersonFill></button>
-                    <span>Si eres Administrador ingresa aquí</span>
-                </div>
+                <Link to="/Session" className='admin-portal-link'>
+                    <div className='admin-portal'>
+                        <button><BsFillPersonFill className='admin-icon'></BsFillPersonFill></button>
+                        <span>Si eres Administrador ingresa aquí</span>
+                    </div>
                 </Link>
             </form>
             <div className="popup" style={{ display: showPopup ? 'block' : 'none' }}>
@@ -149,10 +152,9 @@ export const Form = () => {
                         <p>¡Pronto estaremos en contacto contigo!</p>
                     </div>
 
-                    <button onClick={() => setShowPopup(false)}>Cerrar</button>
+                    <a href="http://localhost:3000/"><button>Cerrar</button></a>
                 </div>
             </div>
-
         </div>
     )
 }

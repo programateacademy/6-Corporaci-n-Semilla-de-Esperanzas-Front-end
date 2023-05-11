@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "../newuser.css";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { Header } from "./Header";
 
 let url = "http://localhost:3030";
+let token = sessionStorage.getItem('token');
 
 export const NewUser = () => {
 
@@ -15,73 +16,80 @@ export const NewUser = () => {
         role: ""
     });
 
-    const handleInput =(e)=>{
-        let {name, value} = e.target;
-        let userData = {...user, [name]: value};
+    const handleInput = (e) => {
+        let { name, value } = e.target;
+        let userData = { ...user, [name]: value };
         setUser(userData);
     };
 
-   const register = async(e)=>{
+    const register = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post(url+"/user/sign", user);
-            console.log(res);
+            const res = await axios.post(url + "/user/sign",user,{ headers: { 'Authorization': token } } );
+            if(res.data.message == "Usuario Registrado"){
+                alert(res.data.message);
+                setTimeout(function () { window.location.href = "http://localhost:3000/TableData"; }, 2000);
+            }else{
+                alert(res.data.message);
+            }
+
         } catch (error) {
-            console.log(error);
+            console.log(error);            
         }
-   };
+    };
+
+    const verifyPass = () => {
+        let pass1= document.getElementsByName('password');
+        let pass2= document.getElementsByName('password2');
+        if (pass2.length > 7) {
+            if (pass1 === pass2) {
+                console.log('contraseñas coinciden')
+            }
+        }
+    };
+
+
 
     return (
-    <> <Header></Header>
-    <div className="container-newuser">
-        
-        <div className="container-form">
+        <> <Header></Header>
+            <div className="container-newuser">
 
-            <div className="container-form-newuser">
+                <div className="container-form">
 
-                <span>Registro De Nuevo Usuario</span>
-                
-                    <form onSubmit={register}>
-                    
-                        <label for="name">Nombre Completo</label>
-                        <input name="name" type="text" id="name" onChange={handleInput} value={user.name} />
+                    <div className="container-form-newuser">
 
-                        <label for="email">Email</label>
-                        <input name="email" type="text" id="email" onChange={handleInput} value={user.email}  />
+                        <span>Registro De Nuevo Usuario</span>
 
-                        <label for="password">Contraseña</label>
-                        <input name="password" type="password" id="password" onChange={handleInput} value={user.password} />
+                        <form onSubmit={register}>
 
-                        <label for="repeatpassword">Vuelve a escribir la contraseña</label>
-                        <input name="" type="password" id="repeatpassword" />
+                            <label htmlFor="name">Nombre Completo</label>
+                            <input name="name" type="text" id="name" onChange={handleInput} value={user.name} required />
 
-                        <label>Rol</label>
-                        <select className="rol-slct" name="role" onChange={handleInput} value={user.role}>
-                            <option>----</option>
-                            <option>admin</option>
-                            <option>user</option>
-                        </select>
-                        
-                        <button className="button-newuser">Enviar</button>
-                        {/*<Link className="button-newuser-link" to='/'><button className="button-newuser" type="submit">Crear Usuario</button></Link>*/}
+                            <label htmlFor="email">Email</label>
+                            <input name="email" type="email" id="email" onChange={handleInput} value={user.email} required />
 
-                    </form>
+                            <label htmlFor="password">Contraseña</label>
+                            <input name="password" type="password" id="password" onChange={handleInput} value={user.password}  required />
 
+                            <label htmlFor="repeatpassword">Vuelve a escribir la contraseña</label>
+                            <input name="repeatpassword" type="password" id="repeatpassword" required />
+
+                            <label>Rol</label>
+                            <select className="rol-slct" name="role" onChange={handleInput} value={user.role} required>
+                                <option>----</option>
+                                <option>admin</option>
+                                <option>user</option>
+                            </select>
+
+                            <button className="button-newuser" onClick={verifyPass}>Enviar</button>                            
+                        </form>
+                    </div>
+                    <div className="img-newuser">
+                    </div>
+                </div>
             </div>
-
-
-            <div className="img-newuser">
-                
-            </div>
-        
-        </div>
-
-
-
-    </div>
-    </>
-    
-  )
+        </>
+    )
 };
 
 export default NewUser;

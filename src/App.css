@@ -6,10 +6,6 @@
 
 @media (max-width: 900px) { 
   .App{
-    /* background-image:url(./images/manos1.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center; */
     min-height: 90%;
     width: 100vw;
     overflow: hidden;
